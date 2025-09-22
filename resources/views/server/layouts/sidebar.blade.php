@@ -34,11 +34,37 @@
           <a class="sidebar-link justify-content-between" href="{{ route('edit.site') }}" aria-expanded="false">
             <div class="d-flex align-items-center gap-3">
               <span class="d-flex">
-                <i class="ti ti-aperture"></i>
+                <i class="ti ti-atom"></i>
               </span>
               <span class="hide-menu">Site Settings</span>
             </div>
 
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link justify-content-between" href="{{ route('index.user-management') }}"
+            aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+              <span class="d-flex">
+                <i class="ti ti-atom"></i>
+              </span>
+              <span class="hide-menu">User Management</span>
+            </div>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+          </form>
+
+          <a class="sidebar-link justify-content-between" href="#"
+            onclick="event.preventDefault(); document.getElementById('logoutForm').submit();" aria-expanded="false">
+            <div class="d-flex align-items-center gap-3">
+              <span class="d-flex">
+                <i class="ti ti-atom"></i>
+              </span>
+              <span class="hide-menu">Logout</span>
+            </div>
           </a>
         </li>
 
@@ -54,7 +80,7 @@
           <a class="sidebar-link justify-content-between" href="{{ route('index.home') }}" aria-expanded="false">
             <div class="d-flex align-items-center gap-3">
               <span class="d-flex">
-                <i class="ti ti-shopping-cart"></i>
+                <i class="ti ti-file"></i>
               </span>
               <span class="hide-menu">Home</span>
             </div>
@@ -65,7 +91,7 @@
           <a class="sidebar-link justify-content-between" href="{{ route('edit.about') }}" aria-expanded="false">
             <div class="d-flex align-items-center gap-3">
               <span class="d-flex">
-                <i class="ti ti-mood-smile"></i>
+                <i class="ti ti-file"></i>
               </span>
               <span class="hide-menu">About</span>
             </div>

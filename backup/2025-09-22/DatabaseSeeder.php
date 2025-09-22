@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,12 @@ class DatabaseSeeder extends Seeder
    */
   public function run() : void
   {
-    // User::factory(10)->create();
-
-    // User::factory()->create([
-    //     'name' => 'Test User',
-    //     'email' => 'test@example.com',
+    // User::create([
+    //   'name' => 'Admin User',
+    //   'username' => 'admin',
+    //   'email' => 'admin@gmail.com',
+    //   'password' => Hash::make('admin123'),
+    //   'email_verified_at' => now(),
     // ]);
     $this->call(UsersTableSeeder::class);
     $this->call(HomesTableSeeder::class);
@@ -29,8 +31,10 @@ class DatabaseSeeder extends Seeder
     $this->call(CategoriProductsTableSeeder::class);
     $this->call(NewsTableSeeder::class);
     $this->call(CategoriNewsTableSeeder::class);
-      $this->call(QuotesTableSeeder::class);
-        $this->call(ContactsTableSeeder::class);
-        $this->call(CategoriProjectsTableSeeder::class);
-    }
+    $this->call(QuotesTableSeeder::class);
+    $this->call(ContactsTableSeeder::class);
+    $this->call(CategoriProjectsTableSeeder::class);
+    $this->call(ProjectsTableSeeder::class);
+    $this->call(SitesTableSeeder::class);
+  }
 }

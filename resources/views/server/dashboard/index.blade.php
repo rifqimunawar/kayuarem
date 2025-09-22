@@ -1,7 +1,26 @@
 @extends('server.layouts.app')
 @section('content-server')
-  <div class="row">
-    <div class="col-lg-8">
+  <div class="row d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title">Selamat Datang</h5>
+          <p class="card-text">
+            Halo, <strong>{{ Auth::user()->username }}</strong>! 👋
+          </p>
+          <a href="{{ route('logout') }}" class="btn btn-primary">
+            <i class="bi bi-box-arrow-right me-1"></i> Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection
+
+
+
+
+{{-- <div class="col-lg-8">
       <div class="card w-100">
         <div class="card-body">
           <div class="d-md-flex align-items-center">
@@ -106,6 +125,4 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-@endsection
+    </div> --}}
