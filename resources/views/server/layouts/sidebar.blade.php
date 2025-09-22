@@ -52,7 +52,7 @@
             </div>
           </a>
         </li>
-        <li class="sidebar-item">
+        {{-- <li class="sidebar-item">
           <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -66,7 +66,7 @@
               <span class="hide-menu">Logout</span>
             </div>
           </a>
-        </li>
+        </li> --}}
 
 
         <li>

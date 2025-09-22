@@ -8,7 +8,11 @@
           <p class="card-text">
             Halo, <strong>{{ Auth::user()->username }}</strong>! 👋
           </p>
-          <a href="{{ route('logout') }}" class="btn btn-primary">
+          <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+          </form>
+          <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"
+            aria-expanded="false" class="btn btn-primary">
             <i class="bi bi-box-arrow-right me-1"></i> Logout
           </a>
         </div>

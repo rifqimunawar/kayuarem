@@ -22,7 +22,7 @@ class AuthController extends Controller
       return redirect()->route('dashboard');
     }
 
-    return view('auth.login');
+    return view('Auth.login');
   }
 
   public function loginStore(Request $request)

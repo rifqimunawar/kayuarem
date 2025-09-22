@@ -14,7 +14,8 @@
               <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 text-center">
                   <h5 class="text-white text-uppercase mb-3 animated slideInDown">{{ $item->slogan }}</h5>
-                  <h1 class="display-3 text-white animated slideInDown mb-4">{{ $item->judul }}</h1>
+                  <h1 class="display-3 text-white animated slideInDown mb-4" style="font-size: 35px">{{ $item->judul }}
+                  </h1>
                   <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ $item->deskripsi }}</p>
                   <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
                   <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
