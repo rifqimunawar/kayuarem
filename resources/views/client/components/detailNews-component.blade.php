@@ -1,0 +1,61 @@
+@php
+  use App\Helpers\Fungsi;
+@endphp
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="section-title text-center">
+      <h1 class="display-5 mb-5">{{ $dataDetailNews->judul }}</h1>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-8">
+        <div class="mb-4">
+          <img src="{{ Fungsi::getImg($dataDetailNews->img) }}" alt="{{ $dataDetailNews->judul }}"
+            class="img-fluid rounded shadow">
+        </div>
+        <div class="mb-3">
+          <h3 class="text-primary fw-bold">
+            {{ $dataDetailNews->judul ?? '' }}
+          </h3>
+          <small class="text-primary fw-bold">
+            {{ Fungsi::format_tgl($dataDetailNews->created_at) }}
+          </small>
+        </div>
+
+        <div class="mb-4 card border-0 shadow-sm">
+          <h5 class="mb-3"></h5>
+          <p class="text-muted lh-lg" style="text-align: justify;">
+            {!! $dataDetailNews->deskripsi !!}
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-primary">
+            <h5 class="mb-0  text-white">Berita Lainnya</h5>
+          </div>
+          <div class="card-body">
+            @forelse ($dataNews as $item)
+              <a href="{{ route('newsDetail', $item->id) }}">
+                <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
+                  <img src="{{ Fungsi::getImg($item->img) }}" alt="{{ $item->judul }}" class="rounded me-3"
+                    style="width: 60px; height: 60px; object-fit: cover;">
+                  <div class="flex-grow-1">
+                    <h6 class="mb-1">{{ $item->judul }}</h6>
+                    <small class="text-primary fw-bold">
+                      {{ $item->category->categori ?? '-' }}
+                    </small>
+                  </div>
+                </div>
+              </a>
+            @empty
+              <p class="text-muted text-center">Tidak ada</p>
+            @endforelse
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

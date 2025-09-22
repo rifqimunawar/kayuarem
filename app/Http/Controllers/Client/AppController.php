@@ -23,87 +23,101 @@ class AppController extends Controller
 {
   public function home()
   {
-    $dataHome = Home::latest()->get();
-    $dataAbout = About::first();
     $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
     $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
     return view(
       'client/pages/homepage',
       [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
         'dataHome' => $dataHome,
         'dataAbout' => $dataAbout,
-        'dataTeam' => $dataTeam,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
         'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
         'dataTestimonial' => $dataTestimonial,
       ]
     );
   }
   public function about()
   {
-    $dataHome = Home::latest()->get();
-    $dataAbout = About::first();
     $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
     $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
 
     return view(
       'client/pages/aboutpage',
       [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
         'dataHome' => $dataHome,
         'dataAbout' => $dataAbout,
-        'dataTeam' => $dataTeam,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
         'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
         'dataTestimonial' => $dataTestimonial,
       ]
     );
   }
   public function services()
   {
-    $dataHome = Home::latest()->get();
-    $dataAbout = About::first();
     $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
     $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
     return view(
       'client/pages/servicespage',
       [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
         'dataHome' => $dataHome,
         'dataAbout' => $dataAbout,
-        'dataTeam' => $dataTeam,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
         'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
         'dataTestimonial' => $dataTestimonial,
       ]
     );
   }
   public function product()
   {
-    $dataHome = Home::latest()->get();
-    $dataAbout = About::first();
     $dataTeam = Team::all();
-    $dataServices = Service::latest()->get();
-    $dataProduct = Product::latest()->get();
-    $dataTestimonial = Testimonial::latest()->get();
-    return view(
-
-      'client/pages/productpage',
-      [
-        'dataHome' => $dataHome,
-        'dataAbout' => $dataAbout,
-        'dataTeam' => $dataTeam,
-        'dataServices' => $dataServices,
-        'dataProduct' => $dataProduct,
-        'dataTestimonial' => $dataTestimonial,
-      ]
-    );
-  }
-  public function project()
-  {
-    $dataHome = Home::latest()->get();
     $dataAbout = About::first();
-    $dataTeam = Team::all();
+    $dataHome = Home::latest()->get();
     $dataServices = Service::latest()->get();
-    $dataProduct = Product::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataProject = Project::with('category')->latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
@@ -112,7 +126,8 @@ class AppController extends Controller
     $dataNews = News::with('category')->latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     return view(
-      'client/pages/projectpage',
+
+      'client/pages/productpage',
       [
         'dataHome' => $dataHome,
         'dataAbout' => $dataAbout,
@@ -128,13 +143,202 @@ class AppController extends Controller
       ]
     );
   }
+  public function project()
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+    return view(
+      'client/pages/projectpage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+      ]
+    );
+  }
   public function contact()
   {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
     $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
     return view(
       'client/pages/contactpage',
       [
-        'dataHome' => $dataHome
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+      ]
+    );
+  }
+  public function news()
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+    return view(
+      'client/pages/newspage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+      ]
+    );
+  }
+
+  public function newsByCategory($id)
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    $dataNewsByCategory = News::where('categori_id', $id)->latest()->get();
+    $dataCatNewsById = Categori_News::findorfail($id);
+    return view(
+      'client/pages/detailcatnewspage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+
+        'dataNewsByCategory' => $dataNewsByCategory,
+        'dataCatNewsById' => $dataCatNewsById,
+      ]
+    );
+  }
+
+
+  public function productDetail($id)
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    $dataDetailProduct = Product::findOrFail($id);
+    return view(
+
+      'client/pages/detailproductpage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+
+        'dataDetailProduct' => $dataDetailProduct,
+      ]
+    );
+  }
+  public function newsDetail($id)
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    $dataDetailNews = News::findOrFail($id);
+    return view(
+
+      'client/pages/detailnewspage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+
+        'dataDetailNews' => $dataDetailNews,
       ]
     );
   }

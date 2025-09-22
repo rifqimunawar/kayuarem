@@ -1,9 +1,14 @@
+@php
+  use App\Helpers\Fungsi;
+  use App\Helpers\GetData;
+@endphp
+
 <aside class="left-sidebar">
   <!-- Sidebar scroll-->
   <div>
-    <div class="brand-logo d-flex align-items-center justify-content-between">
+    <div class="brand-logo d-flex align-items-center justify-content-center">
       <a href="{{ route('homepage') }}" class="text-nowrap logo-img">
-        <img src="https://technoart.id/assets/img/logo.png" alt="" />
+        <img src="{{ GetData::getLogo() }}" alt="" style="width: 10rem; height: auto; object-fit: cover;" />
       </a>
       <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
         <i class="ti ti-x fs-6"></i>
@@ -26,12 +31,12 @@
         <!-- Dashboard -->
         <!-- ---------------------------------- -->
         <li class="sidebar-item">
-          <a class="sidebar-link justify-content-between" href="#" aria-expanded="false">
+          <a class="sidebar-link justify-content-between" href="{{ route('edit.site') }}" aria-expanded="false">
             <div class="d-flex align-items-center gap-3">
               <span class="d-flex">
                 <i class="ti ti-aperture"></i>
               </span>
-              <span class="hide-menu">Analytical</span>
+              <span class="hide-menu">Site Settings</span>
             </div>
 
           </a>

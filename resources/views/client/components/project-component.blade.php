@@ -25,7 +25,7 @@
               <div class="portfolio-overlay">
                 <a class="btn btn-square btn-outline-light mx-1" href="{{ asset('img/' . $item->img) }}"
                   data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
+                {{-- <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a> --}}
               </div>
             </div>
             <div class="border border-5 border-light border-top-0 p-4">

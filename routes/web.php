@@ -14,6 +14,7 @@ use App\Http\Controllers\Server\ProductController;
 use App\Http\Controllers\Server\ProjectController;
 use App\Http\Controllers\Server\QuoteController;
 use App\Http\Controllers\Server\ServiceController;
+use App\Http\Controllers\Server\SiteController;
 use App\Http\Controllers\Server\TeamController;
 use App\Http\Controllers\Server\TestimonialController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,11 @@ Route::get('/about', [AppController::class, 'about'])->name('aboutpage');
 Route::get('/services', [AppController::class, 'services'])->name('servicespage');
 Route::get('/project', [AppController::class, 'project'])->name('projectpage');
 Route::get('/product', [AppController::class, 'product'])->name('productpage');
+Route::get('/product/{id}', [AppController::class, 'productDetail'])->name('productDetail');
 Route::get('/contact', [AppController::class, 'contact'])->name('contactpage');
+Route::get('/news', [AppController::class, 'news'])->name('newspage');
+Route::get('/news/category/{id}', [AppController::class, 'newsByCategory'])->name('newsByCategory');
+Route::get('/news/{id}', [AppController::class, 'newsDetail'])->name('newsDetail');
 
 Route::post('/quotation', [AppController::class, 'storeQuotation'])->name('store.quotation');
 Route::post('/contact', [AppController::class, 'storeContact'])->name('store.contact');
@@ -43,6 +48,9 @@ Route::get('/admin/home/create', [HomeController::class, 'create'])->name('creat
 Route::get('/admin/home/{id}/edit', [HomeController::class, 'edit'])->name('edit.home');
 Route::post('/admin/home/store', [HomeController::class, 'store'])->name('store.home');
 Route::delete('/admin/home/{id}', [HomeController::class, 'destroy'])->name('delete.home');
+
+Route::get('/admin/site/edit', [SiteController::class, 'edit'])->name('edit.site');
+Route::post('/admin/site/store', [SiteController::class, 'store'])->name('store.site');
 
 Route::get('/admin/about/edit', [AboutController::class, 'edit'])->name('edit.about');
 Route::post('/admin/about/store', [AboutController::class, 'store'])->name('store.about');

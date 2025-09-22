@@ -1,6 +1,10 @@
+@php
+  use App\Helpers\Fungsi;
+  use App\Helpers\GetData;
+@endphp
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
   <a href="{{ route('homepage') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-    <img src="https://technoart.id/assets/img/logo.png" alt="" />
+    <img src="{{ GetData::getLogo() }}" alt="" style="width: auto; height: 4rem; object-fit: cover;" />
   </a>
   <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
@@ -27,17 +31,19 @@
       </a>
 
       <a href="{{ route('productpage') }}"
-        class="nav-item nav-link {{ request()->routeIs('productpage') ? 'active' : '' }}">
+        class="nav-item nav-link {{ request()->routeIs('productpage.*') ? 'active' : '' }}">
         Product
       </a>
 
       <div class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('news.*') ? 'active' : '' }}"
+        <a href="{{ route('newspage') }}"
+          class="nav-link dropdown-toggle {{ request()->routeIs('newspage.*') ? 'active' : '' }}"
           data-bs-toggle="dropdown">News</a>
         <div class="dropdown-menu fade-up m-0">
-          <a href="" class="dropdown-item">Category 1</a>
-          <a href="" class="dropdown-item">Category 2</a>
-          <a href="" class="dropdown-item">Category 3</a>
+          <a href="{{ route('newspage') }}" class="dropdown-item">All</a>
+          @foreach ($dataCatNews as $item)
+            <a href="{{ route('newsByCategory', $item->id) }}" class="dropdown-item">{{ $item->categori }}</a>
+          @endforeach
         </div>
       </div>
 
