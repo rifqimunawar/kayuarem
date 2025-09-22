@@ -105,6 +105,12 @@
           </a>
         </li> --}}
         <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('index.client') }}" aria-expanded="false">
+            <i class="ti ti-file"></i>
+            <span class="hide-menu">Client</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('index.quote') }}" aria-expanded="false">
             <i class="ti ti-file"></i>
             <span class="hide-menu">Quote</span>

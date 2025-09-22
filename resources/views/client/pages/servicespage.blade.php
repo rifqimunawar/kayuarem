@@ -16,5 +16,4 @@
   <!-- Page Header End -->
 
   @include('client.components.services-component')
-  @include('client.components.quote-component')
 @endsection

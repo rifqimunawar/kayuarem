@@ -30,7 +30,7 @@
             </div>
             <div class="border border-5 border-light border-top-0 p-4">
               <p class="text-primary fw-medium mb-2">{{ $item->category->categori }} </p>
-              <h5 class="lh-base mb-0">{{ $item->judul ?? '-' }} </a>
+              <h5 class="lh-base mb-0">{{ Str::limit($item->judul ?? '-', 21) }} </a>
             </div>
           </div>
         </div>

@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
     $this->call(CategoriProjectsTableSeeder::class);
     $this->call(ProjectsTableSeeder::class);
     $this->call(SitesTableSeeder::class);
-  }
+      $this->call(ClientsTableSeeder::class);
+    }
 }

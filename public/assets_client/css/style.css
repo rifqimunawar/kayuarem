@@ -271,7 +271,7 @@
 .section-title h1::after {
     position: absolute;
     content: "";
-    width: 45px;
+    width: 0px;
     height: 5px;
     bottom: 0;
     background: var(--dark);
@@ -472,7 +472,7 @@
     left: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(245,245,245) 0%, rgba(255, 255, 255, 0) 100%);
     z-index: 1;
 }
 
@@ -483,7 +483,7 @@
     right: 0;
     height: 100%;
     width: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to left, rgba(245,245,245) 0%, rgba(255, 255, 255, 0) 100%);
     z-index: 1;
 }
 
@@ -514,7 +514,7 @@
 .testimonial-carousel .owl-nav {
     position: absolute;
     width: 350px;
-    top: 10px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -627,4 +627,159 @@
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+
+
+
+.client-carousel {
+    position: relative;
+    overflow: visible !important;
+    padding: 50px 0;
+}
+
+.client-carousel::before,
+.client-carousel::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    height: 100%;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(248,249,250, 0.9) 0%, rgba(248,249,250, 0) 100%);
+}
+
+.client-carousel::after {
+    right: 0;
+    left: auto;
+    background: linear-gradient(to left, rgba(248,249,250, 0.9) 0%, rgba(248,249,250, 0) 100%);
+}
+
+.client-item {
+    position: relative;
+    padding: 20px;
+    transition: all 0.5s ease;
+    transform: scale(0.7);
+    opacity: 0.5;
+    filter: grayscale(50%) blur(1px);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.client-item img {
+    transition: all 0.5s ease;
+    border: 3px solid rgba(13, 110, 253, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+/* Center item */
+.client-carousel .owl-item.center .client-item {
+    transform: scale(1);
+    opacity: 1;
+    filter: grayscale(0%) blur(0px);
+    z-index: 3;
+}
+
+.client-carousel .owl-item.center .client-item img {
+    border: 4px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+}
+
+/* Navigation arrows */
+.client-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.client-carousel:hover .owl-nav {
+    opacity: 1;
+}
+
+.client-carousel .owl-nav .owl-prev,
+.client-carousel .owl-nav .owl-next {
+    background: rgba(13, 110, 253, 0.8);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.client-carousel .owl-nav .owl-prev:hover,
+.client-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+}
+
+/* Custom dots */
+.client-carousel .owl-dots {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.client-carousel .owl-dots .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.client-carousel .owl-dots .owl-dot span {
+    width: 12px;
+    height: 12px;
+    background: rgba(13, 110, 253, 0.3);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.client-carousel .owl-dots .owl-dot.active span,
+.client-carousel .owl-dots .owl-dot:hover span {
+    background: var(--primary);
+    transform: scale(1.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .client-carousel::before,
+    .client-carousel::after {
+        width: 50px;
+    }
+
+    .client-carousel .owl-nav {
+        padding: 0 10px;
+    }
+
+    .client-item {
+        transform: scale(0.8);
+    }
+
+    .client-carousel .owl-item.center .client-item {
+        transform: scale(0.95);
+    }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.7);
+    }
+    to {
+        opacity: 0.5;
+        transform: translateY(0) scale(0.7);
+    }
 }

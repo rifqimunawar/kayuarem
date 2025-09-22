@@ -32,13 +32,46 @@
                 @enderror
               </div>
 
+              {{-- Email --}}
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="tel" name="email" class="form-control @error('email') is-invalid @enderror"
+                  value="{{ old('email', $data->email ?? '') }}" placeholder="" required>
+                @error('email')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+
               {{-- Link Media Sosial --}}
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_tw">Link X (Tweeter) <span class="text-danger">*</span></label>
+                <input type="url" name="link_tw" class="form-control @error('link_tw') is-invalid @enderror"
+                  value="{{ old('link_tw', $data->link_tw ?? '') }}" required>
+                @error('link_tw')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_fb">Link Facebook <span class="text-danger">*</span></label>
+                <input type="url" name="link_fb" class="form-control @error('link_fb') is-invalid @enderror"
+                  value="{{ old('link_fb', $data->link_fb ?? '') }}" required>
+                @error('link_fb')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_yt">Link Youtube <span class="text-danger">*</span></label>
+                <input type="url" name="link_yt" class="form-control @error('link_yt') is-invalid @enderror"
+                  value="{{ old('link_yt', $data->link_yt ?? '') }}" required>
+                @error('link_yt')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
               <div class="col-md-12 mb-3">
-                <label class="form-label">Link Media Sosial <span class="text-danger">*</span></label>
-                <input type="url" name="link_ig" class="form-control @error('link_ig') is-invalid @enderror"
-                  value="{{ old('link_ig', $data->link_ig ?? '') }}" placeholder="https://instagram.com/username"
-                  required>
-                @error('link_ig')
+                <label class="form-label" for="link_lk">Link Linkedin <span class="text-danger">*</span></label>
+                <input type="url" name="link_lk" class="form-control @error('link_lk') is-invalid @enderror"
+                  value="{{ old('link_lk', $data->link_lk ?? '') }}" required>
+                @error('link_lk')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>

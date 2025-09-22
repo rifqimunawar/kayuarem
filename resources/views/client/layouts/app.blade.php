@@ -41,6 +41,8 @@
 
   <!-- Template Stylesheet -->
   <link href="{{ asset('assets_client/css/style.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body>

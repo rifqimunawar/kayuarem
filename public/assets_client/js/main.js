@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,8 +24,8 @@
             $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -84,6 +84,28 @@
         }
     });
 
+    // client carousel
+    // $(".client-carousel").owlCarousel({
+    //     autoplay: true,
+    //     smartSpeed: 1000,
+    //     center: true,
+    //     dots: false,
+    //     loop: true,
+    //     nav : true,
+    //     // navText : [
+    //     //     '<i class="bi bi-arrow-left"></i>',
+    //     //     '<i class="bi bi-arrow-right"></i>'
+    //     // ],
+    //     responsive: {
+    //         0:{
+    //             items:1
+    //         },
+    //         768:{
+    //             items:2
+    //         }
+    //     }
+    // });
+
 
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
@@ -96,6 +118,6 @@
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
-    
+
 })(jQuery);
 

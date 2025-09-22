@@ -36,7 +36,6 @@
   <!-- Feature Start -->
 
 
-
   <!-- About Start -->
   @include('client.components.about-component')
   <!-- About End -->
@@ -48,9 +47,12 @@
 
 
   <!-- Feature Start -->
-  @include('client.components.future-component')
+  {{-- @include('client.components.future-component') --}}
   <!-- Feature End -->
 
+  <!-- Client Start -->
+  @include('client.components.client-component')
+  <!-- Client Start -->
 
   <!-- Projects Start -->
   @include('client.components.project-component')

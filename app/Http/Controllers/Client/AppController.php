@@ -13,6 +13,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categori_Project;
+use App\Models\Client;
 use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Quote;
@@ -26,6 +27,7 @@ class AppController extends Controller
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
+    $dataClient = Client::latest()->get();
     $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
@@ -41,6 +43,7 @@ class AppController extends Controller
         'dataNews' => $dataNews,
         'dataHome' => $dataHome,
         'dataAbout' => $dataAbout,
+        'dataClient' => $dataClient,
         'dataProject' => $dataProject,
         'dataCatNews' => $dataCatNews,
         'dataProduct' => $dataProduct,
@@ -304,6 +307,42 @@ class AppController extends Controller
         'dataTestimonial' => $dataTestimonial,
 
         'dataDetailProduct' => $dataDetailProduct,
+      ]
+    );
+  }
+
+  public function servicesDetail($id)
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    $dataDetailService = Service::findOrFail($id);
+    return view(
+
+      'client/pages/detailservicespage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+
+        'dataDetailService' => $dataDetailService,
       ]
     );
   }

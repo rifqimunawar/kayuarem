@@ -6,6 +6,7 @@ use App\Http\Controllers\Server\AboutController;
 use App\Http\Controllers\Server\CategoriNewsController;
 use App\Http\Controllers\Server\CategoriProductsController;
 use App\Http\Controllers\Server\CategoriProjectController;
+use App\Http\Controllers\Server\ClientController;
 use App\Http\Controllers\Server\ContactController;
 use App\Http\Controllers\Server\DashboardController;
 use App\Http\Controllers\Server\HomeController;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AppController::class, 'home'])->name('homepage');
 Route::get('/about', [AppController::class, 'about'])->name('aboutpage');
 Route::get('/services', [AppController::class, 'services'])->name('servicespage');
+Route::get('/services/{id}', [AppController::class, 'servicesDetail'])->name('serviceDetail');
 Route::get('/project', [AppController::class, 'project'])->name('projectpage');
 Route::get('/product', [AppController::class, 'product'])->name('productpage');
 Route::get('/product/{id}', [AppController::class, 'productDetail'])->name('productDetail');
@@ -140,5 +142,12 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/user-management/{id}/show', [UserManagementCont::class, 'show'])->name('show.user-management');
   Route::post('/admin/user-management/store', [UserManagementCont::class, 'store'])->name('store.user-management');
   Route::delete('/admin/user-management/{id}', [UserManagementCont::class, 'destroy'])->name('delete.user-management');
+
+  Route::get('/admin/client', [ClientController::class, 'index'])->name('index.client');
+  Route::get('/admin/client/create', [ClientController::class, 'create'])->name('create.client');
+  Route::get('/admin/client/{id}/edit', [ClientController::class, 'edit'])->name('edit.client');
+  Route::get('/admin/client/{id}/show', [ClientController::class, 'show'])->name('show.client');
+  Route::post('/admin/client/store', [ClientController::class, 'store'])->name('store.client');
+  Route::delete('/admin/client/{id}', [ClientController::class, 'destroy'])->name('delete.client');
 
 });

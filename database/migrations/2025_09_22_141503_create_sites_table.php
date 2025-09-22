@@ -16,6 +16,10 @@ return new class extends Migration {
       $table->string('logo')->nullable();
       $table->string('alamat')->nullable();
       $table->string('link_ig')->nullable();
+      $table->string('link_tw')->nullable();
+      $table->string('link_fb')->nullable();
+      $table->string('link_yt')->nullable();
+      $table->string('link_lk')->nullable();
       $table->string('mobile')->nullable();
       $table->string('email')->nullable();
       $table->string('link_gmap')->nullable();

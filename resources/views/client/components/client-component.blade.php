@@ -1,0 +1,98 @@
+{{-- <div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container">
+    <div class="section-title text-center">
+      <h1 class="display-5 mb-5">Testimonial</h1>
+    </div>
+    <div class="owl-carousel client-carousel">
+
+      @foreach ($dataClient as $item)
+        <div class="testimonial-item text-center ">
+          <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
+            style="width: 100px; height: 100px; object-fit:cover; border-radius:50%;">
+        </div>
+      @endforeach
+
+    </div>
+  </div>
+</div> --}}
+
+
+<div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="section-title text-center mb-5">
+    <h1 class="display-5 mb-3"> Our Clients </h1>
+  </div>
+  <div class="owl-carousel client-carousel">
+
+    <!-- Sample client items -->
+    @foreach ($dataClient as $item)
+      <div class="client-item text-center">
+        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
+          style="width: 120px; height: 120px; object-fit:cover; border-radius:50%;" alt="Client 2">
+      </div>
+    @endforeach
+
+  </div>
+</div>
+
+
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    const $carousel = $(".client-carousel");
+
+    $carousel.owlCarousel({
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      smartSpeed: 800,
+      center: true,
+      dots: true,
+      loop: true,
+      nav: true,
+      navText: [
+        '<i class="bi bi-chevron-left"></i>',
+        '<i class="bi bi-chevron-right"></i>'
+      ],
+      responsive: {
+        0: {
+          items: 1,
+          stagePadding: 20
+        },
+        768: {
+          items: 3,
+          stagePadding: 20
+        },
+        992: {
+          items: 6,
+          stagePadding: 20
+        }
+      },
+      onTranslated: function() {
+        // Hapus animasi sebelumnya
+        $(".testimonial-item").removeClass("animate__animated animate__pulse");
+
+        // Tambahkan animasi hanya ke item tengah
+        $(".owl-item.center .testimonial-item").addClass("animate__animated animate__pulse");
+
+        // Hapus animasi setelah selesai (1s = sesuai animate.css default)
+        setTimeout(function() {
+          $(".testimonial-item").removeClass("animate__animated animate__pulse");
+        }, 1000);
+      }
+    });
+
+    // Hover effect (gunakan transform di CSS jika bisa, tapi tetap aman dengan JS)
+    $carousel.on("mouseenter", ".testimonial-item", function() {
+      $(this).find("img").css("transform", "scale(1.1)");
+    });
+
+    $carousel.on("mouseleave", ".testimonial-item", function() {
+      $(this).find("img").css("transform", "scale(1)");
+    });
+  });
+</script>

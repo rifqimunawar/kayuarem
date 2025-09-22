@@ -42,6 +42,30 @@ class GetData
     $data = $getData->link_ig;
     return $data;
   }
+  public static function getLinkX()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_tw;
+    return $data;
+  }
+  public static function getLinkFb()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_fb;
+    return $data;
+  }
+  public static function getLinkYt()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_yt;
+    return $data;
+  }
+  public static function getLinkLk()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_lk;
+    return $data;
+  }
   public static function getLogo()
   {
     $getData = DB::table('sites')->first();
