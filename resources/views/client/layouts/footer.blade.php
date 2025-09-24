@@ -19,6 +19,25 @@
               class="fab fa-youtube"></i></a>
           <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkLk() }}"><i
               class="fab fa-linkedin-in"></i></a>
+          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkIg() }}"><i
+              class="fab fa-instagram"></i></a>
+          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkShopee() }}">
+            <img src="{{ asset('img/logo_shopee.png') }}" alt="Shopee"
+              style="filter: invert(1); width:24px; height:auto;">
+          </a>
+          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkTokped() }}">
+            <img src="{{ asset('img/logo_tokped.png') }}" alt="tokped"
+              style="filter: invert(1); width:24px; height:auto;">
+          </a>
+          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkTt() }}">
+            <img src="{{ asset('img/logo_tiktok.png') }}" alt="logo"
+              style="filter: invert(1); width:24px; height:auto;">
+          </a>
+          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkLazada() }}">
+            <img src="{{ asset('img/logo_lazada.png') }}" alt="logo"
+              style="filter: invert(1); width:24px; height:auto;">
+          </a>
+
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
@@ -30,7 +49,7 @@
       <div class="col-lg-4 col-md-6">
         <h4 class="text-light mb-4">Quick Links</h4>
         <a class="btn btn-link" href="{{ route('aboutpage') }}">About Us</a>
-        <a class="btn btn-link" href="{{ route('servicespage') }}">Our Services</a>
+        <a class="btn btn-link" href="{{ route('servicespage') }}">Our Gallery</a>
         <a class="btn btn-link" href="{{ route('contactpage') }}">Contact Us</a>
         <a class="btn btn-link" href="{{ route('productpage') }}">Our Product</a>
         <a class="btn btn-link" href="{{ route('projectpage') }}">Our Projects</a>

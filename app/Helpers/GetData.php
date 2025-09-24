@@ -66,6 +66,36 @@ class GetData
     $data = $getData->link_lk;
     return $data;
   }
+  public static function getLinkIg()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_ig;
+    return $data;
+  }
+  public static function getLinkTt()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_tt;
+    return $data;
+  }
+  public static function getLinkShopee()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_shopee;
+    return $data;
+  }
+  public static function getLinkLazada()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_lazada;
+    return $data;
+  }
+  public static function getLinkTokped()
+  {
+    $getData = DB::table('sites')->first();
+    $data = $getData->link_tokped;
+    return $data;
+  }
   public static function getLogo()
   {
     $getData = DB::table('sites')->first();

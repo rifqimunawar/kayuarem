@@ -22,7 +22,7 @@
 
       <a href="{{ route('servicespage') }}"
         class="nav-item nav-link {{ request()->routeIs('servicespage') ? 'active' : '' }}">
-        Service
+        Gallery
       </a>
 
       <a href="{{ route('projectpage') }}"
@@ -31,21 +31,28 @@
       </a>
 
       <a href="{{ route('productpage') }}"
-        class="nav-item nav-link {{ request()->routeIs('productpage.*') ? 'active' : '' }}">
+        class="nav-item nav-link {{ request()->routeIs('productpage') ? 'active' : '' }}">
         Product
       </a>
 
       <div class="nav-item dropdown">
         <a href="{{ route('newspage') }}"
-          class="nav-link dropdown-toggle {{ request()->routeIs('newspage.*') ? 'active' : '' }}"
+          class="nav-link dropdown-toggle {{ request()->routeIs('newspage') ? 'active' : '' }}"
           data-bs-toggle="dropdown">News</a>
         <div class="dropdown-menu fade-up m-0">
-          <a href="{{ route('newspage') }}" class="dropdown-item">All</a>
+          <a href="{{ route('newspage') }}"
+            class="dropdown-item {{ request()->routeIs('newspage') ? 'active' : '' }}">All</a>
           @foreach ($dataCatNews as $item)
-            <a href="{{ route('newsByCategory', $item->id) }}" class="dropdown-item">{{ $item->categori }}</a>
+            <a href="{{ route('newsByCategory', $item->id) }}"
+              class="dropdown-item {{ request()->is('news/category/' . $item->id) ? 'active' : '' }}">
+              {{ $item->categori }}
+            </a>
           @endforeach
         </div>
       </div>
+
+
+
 
       <a href="{{ route('contactpage') }}"
         class="nav-item nav-link {{ request()->routeIs('contactpage') ? 'active' : '' }}">

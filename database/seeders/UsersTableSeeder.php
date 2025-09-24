@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'email_verified_at' => '2025-09-22 16:16:59',
                 'password' => '$2y$12$VmqGJzPT2w5AFM/iW2O2uulc/LRPa3AksGVAVQLYLyP4s.st339xi',
-                'remember_token' => NULL,
+                'remember_token' => '3LvTWxwtVdFbETi8Sgkct1rQPxypDXMAhjFTSgE0oaegpeFpU5xb26gKwatT',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 16:16:59',
                 'updated_at' => '2025-09-22 16:16:59',

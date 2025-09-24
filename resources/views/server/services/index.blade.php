@@ -24,7 +24,7 @@
                 <tr>
                   <th scope="col" class="text-center" style="width: 5%">#</th>
                   <th scope="col" class="text-center" style="width: 10%">Img</th>
-                  <th scope="col" style="width: 25%">Judul</th>
+                  {{-- <th scope="col" style="width: 25%">Judul</th> --}}
                   <th scope="col" class="text-center" style="width: 10%">Actions</th>
                 </tr>
               </thead>
@@ -43,9 +43,9 @@
                         </div>
                       @endif
                     </td>
-                    <td>
+                    {{-- <td>
                       <strong>{{ $item->title ?? '-' }}</strong>
-                    </td>
+                    </td> --}}
                     <td class="text-center">
                       <div class="btn-group" role="group">
                         <!-- Edit Button -->

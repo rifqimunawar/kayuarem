@@ -67,11 +67,52 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-6 mb-3">
                 <label class="form-label" for="link_lk">Link Linkedin <span class="text-danger">*</span></label>
                 <input type="url" name="link_lk" class="form-control @error('link_lk') is-invalid @enderror"
                   value="{{ old('link_lk', $data->link_lk ?? '') }}" required>
                 @error('link_lk')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_ig">Link Instagram <span class="text-danger">*</span></label>
+                <input type="url" name="link_ig" class="form-control @error('link_ig') is-invalid @enderror"
+                  value="{{ old('link_ig', $data->link_ig ?? '') }}" required>
+                @error('link_ig')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_shopee">Link Shopee <span class="text-danger">*</span></label>
+                <input type="url" name="link_shopee" class="form-control @error('link_shopee') is-invalid @enderror"
+                  value="{{ old('link_shopee', $data->link_shopee ?? '') }}" required>
+                @error('link_shopee')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_tokped">Link Tokopedia <span class="text-danger">*</span></label>
+                <input type="url" name="link_tokped" class="form-control @error('link_tokped') is-invalid @enderror"
+                  value="{{ old('link_tokped', $data->link_tokped ?? '') }}" required>
+                @error('link_tokped')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_tt">Link Tiktok <span class="text-danger">*</span></label>
+                <input type="url" name="link_tt" class="form-control @error('link_tt') is-invalid @enderror"
+                  value="{{ old('link_tt', $data->link_tt ?? '') }}" required>
+                @error('link_tt')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label" for="link_lazada">Link Lazada <span class="text-danger">*</span></label>
+                <input type="url" name="link_lazada"
+                  class="form-control @error('link_lazada') is-invalid @enderror"
+                  value="{{ old('link_lazada', $data->link_lazada ?? '') }}" required>
+                @error('link_lazada')
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>

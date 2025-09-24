@@ -667,9 +667,9 @@
 
 .client-item img {
     transition: all 0.5s ease;
-    border: 3px solid rgba(13, 110, 253, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
+    /* border: 3px solid rgba(13, 110, 253, 0.2); */
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 50%; */
 }
 
 /* Center item */
@@ -681,8 +681,8 @@
 }
 
 .client-carousel .owl-item.center .client-item img {
-    border: 4px solid var(--primary);
-    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+    /* border: 4px solid var(--primary); */
+    /* box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3); */
 }
 
 /* Navigation arrows */
@@ -783,3 +783,9 @@
         transform: translateY(0) scale(0.7);
     }
 }
+
+.wow {
+  animation-fill-mode: backwards !important;
+}
+
+

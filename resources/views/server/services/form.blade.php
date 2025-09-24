@@ -27,7 +27,7 @@
             @csrf
 
             <div class="row">
-              <div class="col-md-12 mb-3">
+              {{-- <div class="col-md-12 mb-3">
                 <label for="nama" class="form-label">
                   Title <span class="text-danger">*</span>
                 </label>
@@ -38,10 +38,10 @@
                     {{ $message }}
                   </div>
                 @enderror
-              </div>
+              </div> --}}
 
               <!-- Deskripsi Field -->
-              <div class="col-md-12 mb-3">
+              {{-- <div class="col-md-12 mb-3">
                 <label for="deskripsi" class="form-label">
                   Deskripsi <span class="text-danger">*</span>
                 </label>
@@ -55,7 +55,7 @@
                 <div class="form-text">
                   Berikan deskripsi yang menarik dan informatif
                 </div>
-              </div>
+              </div> --}}
 
               <!-- Image Upload Field (Optional) -->
               <div class="col-md-12 mb-4">

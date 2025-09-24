@@ -15,8 +15,8 @@ class ServiceController extends Controller
     $text = "Are you sure you want to delete?";
     confirmDelete($alert, $text);
 
-    $title = 'Service Section';
-    $descriptionTitle = 'List data service';
+    $title = 'Gallery Section';
+    $descriptionTitle = 'List data Gallery';
     $data = Service::latest()->get();
 
     return view(

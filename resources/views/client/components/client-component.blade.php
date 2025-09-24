@@ -1,22 +1,3 @@
-{{-- <div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
-  <div class="container">
-    <div class="section-title text-center">
-      <h1 class="display-5 mb-5">Testimonial</h1>
-    </div>
-    <div class="owl-carousel client-carousel">
-
-      @foreach ($dataClient as $item)
-        <div class="testimonial-item text-center ">
-          <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
-            style="width: 100px; height: 100px; object-fit:cover; border-radius:50%;">
-        </div>
-      @endforeach
-
-    </div>
-  </div>
-</div> --}}
-
-
 <div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
   <div class="section-title text-center mb-5">
     <h1 class="display-5 mb-3"> Our Clients </h1>
@@ -27,7 +8,7 @@
     @foreach ($dataClient as $item)
       <div class="client-item text-center">
         <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
-          style="width: 120px; height: 120px; object-fit:cover; border-radius:50%;" alt="Client 2">
+          style="width: auto; height: 120px; " alt="Client 2">
       </div>
     @endforeach
 

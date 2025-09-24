@@ -71,13 +71,13 @@ class TeamsTableSeeder extends Seeder
             array (
                 'id' => 5,
                 'img' => 'team_20250921221410.png',
-                'nama' => 'Agil Cabul',
+                'nama' => 'Agil Abdul',
                 'posisi' => 'Sound Sistem',
                 'deskripsi' => NULL,
-                'link_ig' => NULL,
+                'link_ig' => 'instagram.com',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 22:14:10',
-                'updated_at' => '2025-09-21 22:14:10',
+                'updated_at' => '2025-09-23 22:41:53',
             ),
             5 => 
             array (

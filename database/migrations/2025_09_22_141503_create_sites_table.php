@@ -20,6 +20,10 @@ return new class extends Migration {
       $table->string('link_fb')->nullable();
       $table->string('link_yt')->nullable();
       $table->string('link_lk')->nullable();
+      $table->string('link_tt')->nullable();
+      $table->string('link_shopee')->nullable();
+      $table->string('link_tokped')->nullable();
+      $table->string('link_lazada')->nullable();
       $table->string('mobile')->nullable();
       $table->string('email')->nullable();
       $table->string('link_gmap')->nullable();

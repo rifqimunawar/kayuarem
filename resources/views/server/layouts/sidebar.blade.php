@@ -119,7 +119,7 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('index.services') }}" aria-expanded="false">
             <i class="ti ti-file"></i>
-            <span class="hide-menu">Service</span>
+            <span class="hide-menu">Gallery</span>
           </a>
         </li>
         <li class="sidebar-item">
