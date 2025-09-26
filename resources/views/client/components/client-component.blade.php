@@ -2,15 +2,18 @@
   <div class="section-title text-center mb-5">
     <h1 class="display-5 mb-3"> Our Clients </h1>
   </div>
-  <div class="owl-carousel client-carousel">
+  <div class="container">
 
     <!-- Sample client items -->
-    @foreach ($dataClient as $item)
-      <div class="client-item text-center">
-        <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
-          style="width: auto; height: 120px; " alt="Client 2">
-      </div>
-    @endforeach
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+      @foreach ($dataClient as $item)
+        <div class="portfolio-item wow fadeInUp" data-wow-delay="{{ 0.5 * $loop->iteration }}s">
+          <img class="img-fluid bg-light p-2 mb-3" src="{{ asset('img/' . ($item->img ?? '')) }}"
+            style="width: auto; height: 120px;" alt="Client {{ $loop->iteration }}">
+        </div>
+      @endforeach
+    </div>
+
 
   </div>
 </div>

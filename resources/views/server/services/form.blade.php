@@ -1,13 +1,5 @@
 @extends('server.layouts.app')
 
-{{-- @php
-     = App\Helpers\GetSettings::getLogo();
-    $getWebName = App\Helpers\GetSettings::getNamaWeb();
-    $getEmail = App\Helpers\GetSettings::getEmail();
-    $getTelp = App\Helpers\GetSettings::getTelp();
-    $getAlamat = App\Helpers\GetSettings::getAlamat();
-@endphp --}}
-
 @section('content-server')
   <div class="row">
     <div class="col-lg-12">
@@ -23,82 +15,68 @@
           </div>
 
           <!-- Form -->
-          <form action="{{ route('store.services') }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('store.services') }}" id="formInput" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="row">
-              {{-- <div class="col-md-12 mb-3">
-                <label for="nama" class="form-label">
-                  Title <span class="text-danger">*</span>
-                </label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                  name="title" value="{{ old('title', $data->title ?? '') }}" placeholder="Masukkan title..." required>
-                @error('title')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div> --}}
-
-              <!-- Deskripsi Field -->
-              {{-- <div class="col-md-12 mb-3">
-                <label for="deskripsi" class="form-label">
-                  Deskripsi <span class="text-danger">*</span>
-                </label>
-                <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="5"
-                  placeholder="Masukkan deskripsi..." required>{{ old('deskripsi', $data->deskripsi ?? '') }}</textarea>
-                @error('deskripsi')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-                <div class="form-text">
-                  Berikan deskripsi yang menarik dan informatif
-                </div>
-              </div> --}}
-
-              <!-- Image Upload Field (Optional) -->
-              <div class="col-md-12 mb-4">
-                <label for="img" class="form-label">
-                  Gambar <span class="text-muted">(Opsional)</span>
-                </label>
-                <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
-                  name="img" accept="image/*">
-                @error('img')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <div class="form-text">
-                  Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
-                </div>
-
-                <!-- Image Preview -->
-                <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
-                  <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
-                    class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
-                </div>
+            <!-- Jenis Media -->
+            <div class="col-md-12 mb-3">
+              <label class="form-label">Jenis Media</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="media_type" id="media_video" value="video" checked>
+                <label class="form-check-label" for="media_video">Video</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="media_type" id="media_image" value="image">
+                <label class="form-check-label" for="media_image">Gambar</label>
               </div>
             </div>
 
-            <!-- Form Actions -->
+            <!-- Input Link Video -->
+            <div id="videoInputWrapper" class="col-md-12 mb-3">
+              <label for="link_video" class="form-label">Link Video</label>
+              <input type="text" class="form-control @error('link_video') is-invalid @enderror" id="link_video"
+                name="link_video" value="{{ old('link_video', $data->link_video ?? '') }}"
+                placeholder="Masukkan link video...">
+              @error('link_video')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+            </div>
+
+            <!-- Input Gambar -->
+            <div id="imageInputWrapper" class="col-md-12 mb-4" style="display: none;">
+              <label for="img" class="form-label">Gambar <span class="text-muted">(Opsional)</span></label>
+              <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
+                accept="image/*">
+              @error('img')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+              <div class="form-text">
+                Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
+              </div>
+
+              <!-- Image Preview -->
+              <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
+                <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
+                  class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+              </div>
+            </div>
+
             <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
+
+            <!-- Form Actions -->
             <div class="row">
               <div class="col-12">
                 <hr class="my-4">
                 <div class="d-flex justify-content-between">
-                  <div>
-                    <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
-                      <i class="fas fa-undo me-1"></i>
-                      Reset Form
-                    </button>
-                  </div>
+                  <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
+                    <i class="fas fa-undo me-1"></i> Reset Form
+                  </button>
                   <div>
                     <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
-                      <i class="fas fa-arrow-left me-1"></i>
-                      Kembali
+                      <i class="fas fa-arrow-left me-1"></i> Kembali
                     </button>
                     <button type="submit" class="btn btn-primary" id="submitBtn">
-                      <i class="fas fa-save me-1"></i>
-                      <span id="submitText">Simpan Data</span>
+                      <i class="fas fa-save me-1"></i> <span id="submitText">Simpan Data</span>
                     </button>
                   </div>
                 </div>
@@ -111,16 +89,11 @@
     </div>
   </div>
 @endsection
-
 @push('styles')
   <style>
     .form-label {
       font-weight: 600;
       color: #2c3e50;
-    }
-
-    .text-danger {
-      font-size: 0.8em;
     }
 
     .form-control:focus {
@@ -131,10 +104,6 @@
     .btn {
       border-radius: 6px;
       font-weight: 500;
-    }
-
-    .invalid-feedback {
-      font-size: 0.875em;
     }
 
     .form-text {
@@ -156,28 +125,48 @@
     }
   </style>
 @endpush
-
 @push('scripts')
   <script>
-    // Image Preview Function
-    document.getElementById('img').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      const preview = document.getElementById('imagePreview');
-      const previewImg = document.getElementById('previewImg');
+    document.addEventListener('DOMContentLoaded', function() {
+      const radioVideo = document.getElementById('media_video');
+      const radioImage = document.getElementById('media_image');
+      const videoInput = document.getElementById('videoInputWrapper');
+      const imageInput = document.getElementById('imageInputWrapper');
 
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          previewImg.src = e.target.result;
-          preview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-      } else {
-        preview.style.display = 'none';
+      function toggleMedia() {
+        if (radioVideo.checked) {
+          videoInput.style.display = 'block';
+          imageInput.style.display = 'none';
+        } else {
+          videoInput.style.display = 'none';
+          imageInput.style.display = 'block';
+        }
       }
+
+      radioVideo.addEventListener('change', toggleMedia);
+      radioImage.addEventListener('change', toggleMedia);
+      toggleMedia(); // initial load
+
+      // Gambar preview
+      document.getElementById('img').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const previewImg = document.getElementById('previewImg');
+        const previewContainer = document.getElementById('imagePreview');
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            previewContainer.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        } else {
+          previewContainer.style.display = 'none';
+        }
+      });
     });
 
-    // Reset Form Function
+    // Reset Form
     function resetForm() {
       Swal.fire({
         title: "Reset Form",
@@ -188,68 +177,38 @@
         cancelButtonText: "Batal"
       }).then((result) => {
         if (result.isConfirmed) {
-          document.querySelector('form').reset();
-          const preview = document.getElementById('imagePreview');
-          if (preview) preview.style.display = 'none';
-          document.querySelectorAll('.is-invalid').forEach((el) => {
-            el.classList.remove('is-invalid');
-          });
-
+          const form = document.querySelector('form');
+          form.reset();
+          toggleMedia(); // Reset media input
+          document.getElementById('imagePreview').style.display = 'none';
+          document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
           Swal.fire("Form berhasil direset!", "", "success");
         }
       });
     }
 
-    // Form Submission Handler
-    document.querySelector('form').addEventListener('submit', function(e) {
+    // Submit Button Loading
+    document.getElementById('formInput').addEventListener('submit', function() {
       const submitBtn = document.getElementById('submitBtn');
       const submitText = document.getElementById('submitText');
-
-      // Disable button and show loading
       submitBtn.disabled = true;
-      submitText.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Menyimpan...';
-
-      // Validate required fields
-      let isValid = true;
-      const requiredFields = ['judul', 'slogan', 'deskripsi'];
-
-      requiredFields.forEach(function(fieldName) {
-        const field = document.getElementById(fieldName);
-        if (!field.value.trim()) {
-          field.classList.add('is-invalid');
-          isValid = false;
-        } else {
-          field.classList.remove('is-invalid');
-        }
-      });
-
-      if (!isValid) {
-        e.preventDefault();
-        submitBtn.disabled = false;
-        submitText.innerHTML = '<i class="fas fa-save me-1"></i>Simpan Data';
-
-        // Show error message
-        showToast('Mohon lengkapi semua field yang wajib diisi', 'error');
-        return false;
-      }
+      submitText.innerHTML =
+        '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Menyimpan...';
     });
 
-    // Toast Notification Function
+    // Show Toast (optional: if session messages exist)
     function showToast(message, type = 'success') {
-      // Create toast element
       const toastHTML = `
         <div class="toast align-items-center text-white bg-${type === 'success' ? 'success' : 'danger'} border-0" role="alert">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
-                    ${message}
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+          <div class="d-flex">
+            <div class="toast-body">
+              <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+              ${message}
             </div>
-        </div>
-    `;
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+          </div>
+        </div>`;
 
-      // Add to toast container (you might need to add this to your layout)
       let toastContainer = document.querySelector('.toast-container');
       if (!toastContainer) {
         toastContainer = document.createElement('div');
@@ -263,7 +222,6 @@
       toast.show();
     }
 
-    // Handle session messages
     @if (session('success'))
       showToast('{{ session('success') }}', 'success');
     @endif
@@ -271,28 +229,5 @@
     @if (session('error'))
       showToast('{{ session('error') }}', 'error');
     @endif
-
-    // Character counter for textarea (optional)
-    document.getElementById('deskripsi').addEventListener('input', function() {
-      const maxLength = 1000;
-      const currentLength = this.value.length;
-      const remaining = maxLength - currentLength;
-
-      let counterElement = document.getElementById('deskripsi-counter');
-      if (!counterElement) {
-        counterElement = document.createElement('div');
-        counterElement.id = 'deskripsi-counter';
-        counterElement.className = 'form-text text-end';
-        this.parentNode.appendChild(counterElement);
-      }
-
-      counterElement.innerHTML = `${currentLength}/${maxLength} karakter`;
-
-      if (remaining < 50) {
-        counterElement.classList.add('text-warning');
-      } else {
-        counterElement.classList.remove('text-warning');
-      }
-    });
   </script>
 @endpush

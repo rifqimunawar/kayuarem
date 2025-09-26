@@ -11,14 +11,14 @@
         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ GetData::getTelp() }}</p>
         <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ GetData::getEmail() }}</p>
         <div class="d-flex pt-2">
-          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkX() }}"><i
-              class="fab fa-twitter"></i></a>
+          {{-- <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkX() }}"><i
+              class="fab fa-twitter"></i></a> --}}
           <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkFb() }}"><i
               class="fab fa-facebook-f"></i></a>
           <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkYt() }}"><i
               class="fab fa-youtube"></i></a>
-          <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkLk() }}"><i
-              class="fab fa-linkedin-in"></i></a>
+          {{-- <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkLk() }}"><i
+              class="fab fa-linkedin-in"></i></a> --}}
           <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkIg() }}"><i
               class="fab fa-instagram"></i></a>
           <a class="btn btn-outline-light btn-social" target="_blank" href="{{ GetData::getLinkShopee() }}">
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
-        <h4 class="text-light mb-4">Catgory News</h4>
+        <h4 class="text-light mb-4">Catgory Artikel</h4>
         @foreach ($dataCatNews as $item)
           <a class="btn btn-link" href="{{ route('newsByCategory', $item->id) }}">{{ $item->categori }}</a>
         @endforeach

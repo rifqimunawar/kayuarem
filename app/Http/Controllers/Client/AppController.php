@@ -28,11 +28,11 @@ class AppController extends Controller
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
     $dataClient = Client::latest()->get();
-    $dataServices = Service::latest()->get();
+    $dataServices = Service::take(6)->latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
-    $dataNews = News::with('category')->latest()->get();
+    $dataNews = News::with('category')->take(6)->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
     $dataProject = Project::with('category')->latest()->get();
     $dataProduct = Product::with('category')->latest()->get();
@@ -272,6 +272,43 @@ class AppController extends Controller
         'dataCatNewsById' => $dataCatNewsById,
       ]
     );
+  }
+  public function productByCategory($id)
+  {
+    // Validasi kategori produk
+    $dataCatProductById = Categori_Products::findOrFail($id);
+    $dataProductByCategory = Product::where('categori_id', $id)->latest()->get();
+
+    // Data umum (bisa dirapikan lebih lanjut nanti)
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    return view('client.pages.detailcatproductpage', [
+      'dataTeam' => $dataTeam,
+      'dataNews' => $dataNews,
+      'dataHome' => $dataHome,
+      'dataAbout' => $dataAbout,
+      'dataProject' => $dataProject,
+      'dataCatNews' => $dataCatNews,
+      'dataProduct' => $dataProduct,
+      'dataServices' => $dataServices,
+      'dataCatProject' => $dataCatProject,
+      'dataCatProduct' => $dataCatProduct,
+      'dataTestimonial' => $dataTestimonial,
+
+      // Kategori yang dipilih
+      'dataProductByCategory' => $dataProductByCategory,
+      'dataCatProductById' => $dataCatProductById,
+    ]);
   }
 
 

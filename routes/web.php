@@ -30,6 +30,7 @@ Route::get('/services/{id}', [AppController::class, 'servicesDetail'])->name('se
 Route::get('/project', [AppController::class, 'project'])->name('projectpage');
 Route::get('/product', [AppController::class, 'product'])->name('productpage');
 Route::get('/product/{id}', [AppController::class, 'productDetail'])->name('productDetail');
+Route::get('/product/category/{id}', [AppController::class, 'productByCategory'])->name('productByCategory');
 Route::get('/contact', [AppController::class, 'contact'])->name('contactpage');
 Route::get('/news', [AppController::class, 'news'])->name('newspage');
 Route::get('/news/category/{id}', [AppController::class, 'newsByCategory'])->name('newsByCategory');

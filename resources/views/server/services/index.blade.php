@@ -24,7 +24,8 @@
                 <tr>
                   <th scope="col" class="text-center" style="width: 5%">#</th>
                   <th scope="col" class="text-center" style="width: 10%">Img</th>
-                  {{-- <th scope="col" style="width: 25%">Judul</th> --}}
+                  <th scope="col" class="text-center" style="width: 10%">Category</th>
+                  {{-- <th scope="col" style="width: 25%">Category</th> --}}
                   <th scope="col" class="text-center" style="width: 10%">Actions</th>
                 </tr>
               </thead>
@@ -33,19 +34,48 @@
                   <tr>
                     <th scope="row" class="text-center">{{ $loop->iteration }}</th>
                     <td class="text-center">
-                      @if ($item->img)
-                        <img src="{{ asset('img/' . $item->img) }}" alt="Product Image" class="img-thumbnail"
-                          style="width: 50px; height: 50px; object-fit: cover;">
-                      @else
-                        <div class="bg-light d-flex align-items-center justify-content-center"
-                          style="width: 50px; height: 50px; border-radius: 4px;">
-                          <i class="fas fa-image text-muted"></i>
-                        </div>
+
+                      @if ($item->media_type == 'image')
+                        @if ($item->img)
+                          <img src="{{ asset('img/' . $item->img) }}" alt="Product Image" class="img-thumbnail"
+                            style="width: 50px; height: 50px; object-fit: cover;">
+                        @else
+                          <div class="bg-light d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px; border-radius: 4px;">
+                            <i class="fas fa-image text-muted"></i>
+                          </div>
+                        @endif
+                      @elseif ($item->media_type == 'video')
+                        @php
+                          $videoId = null;
+                          if (
+                              preg_match(
+                                  '/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^\s&]+)/',
+                                  $item->link_video,
+                                  $matches,
+                              )
+                          ) {
+                              $videoId = $matches[1];
+                          }
+                        @endphp
+
+                        @if ($videoId)
+                          <img src="https://img.youtube.com/vi/{{ $videoId }}/mqdefault.jpg" alt="Video Thumbnail"
+                            class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+                        @else
+                          <div class="bg-light d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px; border-radius: 4px;">
+                            <i class="fas fa-video text-muted"></i>
+                          </div>
+                        @endif
                       @endif
+
+
+
                     </td>
-                    {{-- <td>
-                      <strong>{{ $item->title ?? '-' }}</strong>
-                    </td> --}}
+                    <td>
+                      <strong class="text-center">{{ $item->media_type ?? '' }}</strong>
+                    </td>
                     <td class="text-center">
                       <div class="btn-group" role="group">
                         <!-- Edit Button -->

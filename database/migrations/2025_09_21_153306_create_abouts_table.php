@@ -16,6 +16,8 @@ return new class extends Migration {
       $table->string('jumlah_client');
       $table->string('jumlah_project');
       $table->string('deskripsi');
+      $table->text('visi')->nullable();
+      $table->text('misi')->nullable();
 
       $table->softDeletes();
       $table->timestamps();

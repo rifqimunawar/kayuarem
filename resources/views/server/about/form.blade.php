@@ -18,7 +18,7 @@
             @csrf
 
             <div class="row">
-              <div class="col-md-12 mb-3">
+              {{-- <div class="col-md-12 mb-3">
                 <label for="jumlah_client" class="form-label">
                   Jumlah Client <span class="text-danger">*</span>
                 </label>
@@ -43,6 +43,24 @@
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
+                @enderror
+              </div> --}}
+
+
+              {{-- Visi --}}
+              <div class="col-md-12 mb-3">
+                <label class="form-label">Visi <span class="text-danger">*</span></label>
+                <textarea name="visi" rows="5" class="form-control @error('visi') is-invalid @enderror" required>{{ old('visi', $data->visi ?? '') }}</textarea>
+                @error('visi')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+              </div>
+              {{-- misi --}}
+              <div class="col-md-12 mb-3">
+                <label class="form-label">Misi <span class="text-danger">*</span></label>
+                <textarea name="misi" rows="10" class="form-control @error('misi') is-invalid @enderror" required>{{ old('misi', $data->misi ?? '') }}</textarea>
+                @error('misi')
+                  <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
 

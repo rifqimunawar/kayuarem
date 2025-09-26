@@ -14,7 +14,7 @@
           </div>
           <p class="mb-4 pb-2">{{ $dataAbout->deskripsi ?? '' }}</p>
           <div class="row g-4 mb-4 pb-2">
-            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+            {{-- <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
               <div class="d-flex align-items-center">
                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
                   style="width: 60px; height: 60px;">
@@ -25,8 +25,8 @@
                   <p class="fw-medium mb-0">Happy Clients</p>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+            </div> --}}
+            {{-- <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
               <div class="d-flex align-items-center">
                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
                   style="width: 60px; height: 60px;">
@@ -37,9 +37,9 @@
                   <p class="fw-medium mb-0">Projects Done</p>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
-          <a href="" class="btn btn-primary py-3 px-5">Explore More</a>
+          <a href="{{ route('aboutpage') }}" class="btn btn-primary py-3 px-5">Read More</a>
         </div>
       </div>
     </div>

@@ -122,6 +122,7 @@
             <span class="hide-menu">Gallery</span>
           </a>
         </li>
+
         <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('index.team') }}" aria-expanded="false">
             <i class="ti ti-file"></i>

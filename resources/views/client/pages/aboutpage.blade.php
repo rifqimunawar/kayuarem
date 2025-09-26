@@ -19,6 +19,10 @@
   @include('client.components.about-component')
   <!-- About End -->
 
+  <!-- About Start -->
+  @include('client.components.visimisi-component')
+  <!-- About End -->
+
   <!-- Team Start -->
   @include('client.components.team-component')
   <!-- Team End -->

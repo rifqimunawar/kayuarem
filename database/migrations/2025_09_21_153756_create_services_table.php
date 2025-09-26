@@ -14,6 +14,8 @@ return new class extends Migration {
       $table->uuid('id')->primary();
       $table->string('img')->nullable();
       $table->string('title')->nullable();
+      $table->string('media_type')->nullable();
+      $table->string('link_video')->nullable();
       $table->text('deskripsi')->nullable();
 
       $table->softDeletes();

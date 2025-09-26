@@ -13,12 +13,12 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 text-center">
-                  <h5 class="text-white text-uppercase mb-3 animated slideInDown">{{ $item->slogan }}</h5>
+                  {{-- <h5 class="text-white text-uppercase mb-3 animated slideInDown">{{ $item->slogan }}</h5> --}}
                   <h1 class="display-3 text-white animated slideInDown mb-4" style="font-size: 35px">{{ $item->judul }}
                   </h1>
                   <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ $item->deskripsi }}</p>
                   <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                  <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a>
+                  {{-- <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a> --}}
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@
 
 
   <!-- Feature Start -->
-  @include('client.components.future-component')
+  {{-- @include('client.components.future-component') --}}
   <!-- Feature Start -->
 
 
@@ -54,18 +54,18 @@
   @include('client.components.client-component')
   <!-- Client Start -->
 
-  <!-- Projects Start -->
-  @include('client.components.project-component')
-  <!-- Projects End -->
+  <!-- Artikel Start -->
+  @include('client.components.news-component')
+  <!-- Artikel End -->
 
 
   <!-- Quote Start -->
-  @include('client.components.quote-component')
+  {{-- @include('client.components.quote-component') --}}
   <!-- Quote End -->
 
 
   <!-- Team Start -->
-  @include('client.components.team-component')
+  {{-- @include('client.components.team-component') --}}
   <!-- Team End -->
 
 
