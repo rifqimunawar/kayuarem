@@ -98,6 +98,9 @@ class Backup extends Command
       'clients' => [
         'clients',
       ],
+      'milestones' => [
+        'milestones',
+      ],
 
 
     ];

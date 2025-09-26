@@ -14,7 +14,7 @@
           </div>
 
           <!-- Form -->
-          <form action="{{ route('store.about') }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('store.about') }}" id="form" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -100,6 +100,56 @@
                   <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
                     class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
                 </div>
+                {{-- ============================================== --}}
+
+                <div class="col-md-12 mb-3">
+                  <label for="slogan" class="form-label">
+                    Slogan <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control @error('slogan') is-invalid @enderror" id="slogan"
+                    name="slogan" value="{{ old('slogan', $data->slogan ?? '') }}" placeholder="Masukkan slogan..."
+                    required>
+                  @error('slogan')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+
+                <!-- Gambar slogan -->
+                <div class="col-md-12 mb-4">
+                  <label for="img_slogan" class="form-label">Gambar <span class="text-muted">(Opsional)</span></label>
+                  <input type="file" class="form-control @error('img_slogan') is-invalid @enderror" id="img_slogan"
+                    name="img_slogan" accept="image/*">
+                  @error('img_slogan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                  <div class="form-text">Format yang didukung: JPG, PNG, GIF. Maksimal 2MB</div>
+
+                  <div id="imageSloganPreview" class="mt-2"
+                    style="{{ !empty($data->img_slogan) ? '' : 'display:none;' }}">
+                    <img id="previewSloganImg"
+                      src="{{ !empty($data->img_slogan) ? asset('img/' . $data->img_slogan) : '' }}" alt="Preview"
+                      class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+                  </div>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                  <label for="deskripsi_slogan" class="form-label">
+                    Deskripsi Slogan <span class="text-danger">*</span>
+                  </label>
+                  <textarea class="form-control @error('deskripsi_slogan') is-invalid @enderror" id="deskripsi_slogan"
+                    name="deskripsi_slogan" rows="5" placeholder="Masukkan deskripsi_slogan..." required>{{ old('deskripsi_slogan', $data->deskripsi_slogan ?? '') }}</textarea>
+                  @error('deskripsi_slogan')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                  <div class="form-text">
+                    Berikan deskripsi slogan yang menarik dan informatif
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -111,10 +161,10 @@
                 <hr class="my-4">
                 <div class="d-flex justify-content-between">
                   <div>
-                    {{-- <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
+                    <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
                       <i class="fas fa-undo me-1"></i>
                       Reset Form
-                    </button> --}}
+                    </button>
                   </div>
                   <div>
                     <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
@@ -174,6 +224,13 @@
       text-align: center;
     }
 
+    #imageSloganPreview {
+      border: 2px dashed #dee2e6;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
     .card {
       box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
       border: none;
@@ -184,25 +241,45 @@
 
 @push('scripts')
   <script>
-    // Image Preview Function
+    // Image Preview untuk "img"
     document.getElementById('img').addEventListener('change', function(e) {
       const file = e.target.files[0];
-      const preview = document.getElementById('imagePreview');
+      const previewContainer = document.getElementById('imagePreview');
       const previewImg = document.getElementById('previewImg');
 
       if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
           previewImg.src = e.target.result;
-          preview.style.display = 'block';
+          previewContainer.style.display = 'block';
         };
         reader.readAsDataURL(file);
       } else {
-        preview.style.display = 'none';
+        previewImg.src = '';
+        previewContainer.style.display = 'none';
       }
     });
 
-    // Reset Form Function
+    // Image Preview untuk "img_slogan"
+    document.getElementById('img_slogan').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const previewContainer = document.getElementById('imageSloganPreview');
+      const previewImg = document.getElementById('previewSloganImg');
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          previewImg.src = e.target.result;
+          previewContainer.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        previewImg.src = '';
+        previewContainer.style.display = 'none';
+      }
+    });
+
+    // Reset Form Function (tambahkan reset preview)
     function resetForm() {
       Swal.fire({
         title: "Reset Form",
@@ -213,10 +290,15 @@
         cancelButtonText: "Batal"
       }).then((result) => {
         if (result.isConfirmed) {
-          document.querySelector('form').reset();
-          const preview = document.getElementById('imagePreview');
-          if (preview) preview.style.display = 'none';
-          document.querySelectorAll('.is-invalid').forEach((el) => {
+          const form = document.querySelector('form');
+          form.reset();
+
+          document.getElementById('imagePreview').style.display = 'none';
+          document.getElementById('imageSloganPreview').style.display = 'none';
+          document.getElementById('previewImg').src = '';
+          document.getElementById('previewSloganImg').src = '';
+
+          form.querySelectorAll('.is-invalid').forEach((el) => {
             el.classList.remove('is-invalid');
           });
 
@@ -226,13 +308,14 @@
     }
 
     // Form Submission Handler
-    document.querySelector('form').addEventListener('submit', function(e) {
+    document.getElementById('form').addEventListener('submit', function(e) {
       const submitBtn = document.getElementById('submitBtn');
       const submitText = document.getElementById('submitText');
 
       // Disable button and show loading
       submitBtn.disabled = true;
-      submitText.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Menyimpan...';
+      submitText.innerHTML =
+        '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>Menyimpan...';
 
       // Validate required fields
       let isValid = true;

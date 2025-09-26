@@ -37,6 +37,5 @@ class DatabaseSeeder extends Seeder
     $this->call(ProjectsTableSeeder::class);
     $this->call(SitesTableSeeder::class);
       $this->call(ClientsTableSeeder::class);
-        $this->call(MilestonesTableSeeder::class);
     }
 }

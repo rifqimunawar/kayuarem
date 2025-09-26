@@ -33,6 +33,13 @@ class AboutController extends Controller
       $data['img'] = $newFileName;
     }
 
+    if ($request->hasFile('img_slogan')) {
+      $extension = $request->img_slogan->getClientOriginalExtension();
+      $newFileName = 'img_slogan_' . now()->format('YmdHis') . '.' . $extension;
+      $request->file('img_slogan')->move(public_path('img'), $newFileName);
+      $data['img_slogan'] = $newFileName;
+    }
+
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
       $dataUpate = About::findOrFail($request->id);

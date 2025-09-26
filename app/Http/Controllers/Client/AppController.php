@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Categori_Project;
 use App\Models\Client;
 use App\Models\Contact;
+use App\Models\Milestone;
 use App\Models\Project;
 use App\Models\Quote;
 use App\Models\Testimonial;
@@ -58,6 +59,7 @@ class AppController extends Controller
   {
     $dataTeam = Team::all();
     $dataAbout = About::first();
+    $dataMilestone = Milestone::all();
     $dataHome = Home::latest()->get();
     $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
@@ -79,6 +81,7 @@ class AppController extends Controller
         'dataCatNews' => $dataCatNews,
         'dataProduct' => $dataProduct,
         'dataServices' => $dataServices,
+        'dataMilestone' => $dataMilestone,
         'dataCatProject' => $dataCatProject,
         'dataCatProduct' => $dataCatProduct,
         'dataTestimonial' => $dataTestimonial,

@@ -111,9 +111,9 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="{{ route('index.quote') }}" aria-expanded="false">
+          <a class="sidebar-link" href="{{ route('index.milestone') }}" aria-expanded="false">
             <i class="ti ti-file"></i>
-            <span class="hide-menu">Quote</span>
+            <span class="hide-menu">Milestone</span>
           </a>
         </li>
         <li class="sidebar-item">

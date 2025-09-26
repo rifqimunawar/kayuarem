@@ -23,7 +23,10 @@
   @include('client.components.visimisi-component')
   <!-- About End -->
 
+  @include('client.components.slogan-component')
+  @include('client.components.milestone-component')
   <!-- Team Start -->
   @include('client.components.team-component')
   <!-- Team End -->
+  <input type="hidden" name="redirect_to" value="{{ url()->full() }}">
 @endsection

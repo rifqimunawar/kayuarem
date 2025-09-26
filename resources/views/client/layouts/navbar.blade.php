@@ -12,35 +12,30 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
       <a href="{{ route('homepage') }}" class="nav-item nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}">
-        Home
+        {{ __('trans.Home') }}
       </a>
 
       <a href="{{ route('aboutpage') }}"
         class="nav-item nav-link {{ request()->routeIs('aboutpage') ? 'active' : '' }}">
-        About
+        {{ __('trans.About') }}
       </a>
 
       <a href="{{ route('servicespage') }}"
         class="nav-item nav-link {{ request()->routeIs('servicespage') ? 'active' : '' }}">
-        Gallery
+        {{ __('trans.Gallery') }}
       </a>
 
       <a href="{{ route('projectpage') }}"
         class="nav-item nav-link {{ request()->routeIs('projectpage') ? 'active' : '' }}">
-        Project
+        {{ __('trans.Project') }}
       </a>
-
-      {{-- <a href="{{ route('productpage') }}"
-        class="nav-item nav-link {{ request()->routeIs('productpage') ? 'active' : '' }}">
-        Product
-      </a> --}}
 
       <div class="nav-item dropdown">
         <a href="{{ route('productpage') }}"
           class="nav-link dropdown-toggle
            {{ request()->is('product') || request()->is('product/category/*') || request()->is('product/*') ? 'active' : '' }}"
           data-bs-toggle="dropdown">
-          Product
+          {{ __('trans.Product') }}
         </a>
 
         <div class="dropdown-menu fade-up m-0">
@@ -55,16 +50,12 @@
           @endforeach
         </div>
       </div>
-
-
-
-
       <div class="nav-item dropdown">
         <a href="{{ route('newspage') }}"
           class="nav-link dropdown-toggle
            {{ request()->is('news') || request()->is('news/category/*') || request()->is('news/*') ? 'active' : '' }}"
           data-bs-toggle="dropdown">
-          Artikel
+          {{ __('trans.Article') }}
         </a>
         <div class="dropdown-menu fade-up m-0">
           <a href="{{ route('newspage') }}" class="dropdown-item {{ request()->is('news') ? 'active' : '' }}">
@@ -79,13 +70,21 @@
         </div>
       </div>
 
-
-
-
+      {{-- <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+          🌐 {{ strtoupper(app()->getLocale()) }}
+        </a>
+        <div class="dropdown-menu fade-up m-0">
+          <a class="dropdown-item {{ app()->getLocale() == 'en' ? 'active' : '' }}"
+            href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}">🇺🇸 English</a>
+          <a class="dropdown-item {{ app()->getLocale() == 'id' ? 'active' : '' }}"
+            href="{{ request()->fullUrlWithQuery(['lang' => 'id']) }}">🇮🇩 Indonesia</a>
+        </div>
+      </div> --}}
 
       <a href="{{ route('contactpage') }}"
         class="nav-item nav-link {{ request()->routeIs('contactpage') ? 'active' : '' }}">
-        Contact
+        {{ __('trans.Contact') }}
       </a>
     </div>
 

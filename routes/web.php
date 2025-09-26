@@ -10,6 +10,7 @@ use App\Http\Controllers\Server\ClientController;
 use App\Http\Controllers\Server\ContactController;
 use App\Http\Controllers\Server\DashboardController;
 use App\Http\Controllers\Server\HomeController;
+use App\Http\Controllers\Server\MileStoneController;
 use App\Http\Controllers\Server\NewsController;
 use App\Http\Controllers\Server\ProductController;
 use App\Http\Controllers\Server\ProjectController;
@@ -150,5 +151,12 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/client/{id}/show', [ClientController::class, 'show'])->name('show.client');
   Route::post('/admin/client/store', [ClientController::class, 'store'])->name('store.client');
   Route::delete('/admin/client/{id}', [ClientController::class, 'destroy'])->name('delete.client');
+
+  Route::get('/admin/milestone', [MileStoneController::class, 'index'])->name('index.milestone');
+  Route::get('/admin/milestone/create', [MileStoneController::class, 'create'])->name('create.milestone');
+  Route::get('/admin/milestone/{id}/edit', [MileStoneController::class, 'edit'])->name('edit.milestone');
+  Route::get('/admin/milestone/{id}/show', [MileStoneController::class, 'show'])->name('show.milestone');
+  Route::post('/admin/milestone/store', [MileStoneController::class, 'store'])->name('store.milestone');
+  Route::delete('/admin/milestone/{id}', [MileStoneController::class, 'destroy'])->name('delete.milestone');
 
 });

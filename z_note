@@ -14,3 +14,7 @@ use App\Helpers\Fungsi;
 use App\Helpers\GetSettings;
 use Carbon\Carbon;
 @endphp
+
+php artisan route:clear
+php artisan optimize:clear
+php artisan route:list

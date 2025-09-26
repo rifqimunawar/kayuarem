@@ -10,34 +10,10 @@
       <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
         <div class="p-lg-5 pe-lg-0">
           <div class="section-title text-start">
-            <h1 class="display-5 mb-4">About Us</h1>
+            <h1 class="display-5 mb-4">{{ __('trans.About Us') }}</h1>
           </div>
           <p class="mb-4 pb-2">{{ $dataAbout->deskripsi ?? '' }}</p>
           <div class="row g-4 mb-4 pb-2">
-            {{-- <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-              <div class="d-flex align-items-center">
-                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                  style="width: 60px; height: 60px;">
-                  <i class="fa fa-users fa-2x text-primary"></i>
-                </div>
-                <div class="ms-3">
-                  <h2 class="text-primary mb-1" data-toggle="counter-up">{{ $dataAbout->jumlah_client ?? 0 }}</h2>
-                  <p class="fw-medium mb-0">Happy Clients</p>
-                </div>
-              </div>
-            </div> --}}
-            {{-- <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-              <div class="d-flex align-items-center">
-                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                  style="width: 60px; height: 60px;">
-                  <i class="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div class="ms-3">
-                  <h2 class="text-primary mb-1" data-toggle="counter-up">{{ $dataAbout->jumlah_project ?? 0 }}</h2>
-                  <p class="fw-medium mb-0">Projects Done</p>
-                </div>
-              </div>
-            </div> --}}
           </div>
           <a href="{{ route('aboutpage') }}" class="btn btn-primary py-3 px-5">Read More</a>
         </div>
