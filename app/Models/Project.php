@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class Project extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, HasTranslations;
+
   protected $guarded = [];
 
   // uuid
@@ -31,4 +33,10 @@ class Project extends Model
   {
     return $this->belongsTo(Categori_Project::class, 'categori_id');
   }
+
+  public array $translatable =
+    [
+      'judul',
+      'deskripsi',
+    ];
 }

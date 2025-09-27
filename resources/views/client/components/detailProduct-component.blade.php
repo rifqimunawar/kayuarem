@@ -27,7 +27,7 @@
 
         <!-- Product Description -->
         <div class="mb-4">
-          <h5 class="mb-3">Deskripsi Produk</h5>
+          <h5 class="mb-3">{{ __('trans.Product Descrioption') }}</h5>
           <p class="text-muted lh-lg">
             {{ $dataDetailProduct->deskripsi }}
           </p>
@@ -38,7 +38,7 @@
       <div class="col-md-4">
         <div class="card border-0 shadow-sm">
           <div class="card-header bg-primary">
-            <h5 class="mb-0  text-white">Produk Lainnya</h5>
+            <h5 class="mb-0  text-white">{{ __('trans.Other Products') }}</h5>
           </div>
           <div class="card-body">
             @forelse ($dataProduct as $item)
@@ -55,7 +55,7 @@
                 </div>
               </a>
             @empty
-              <p class="text-muted text-center">Tidak ada produk lain tersedia</p>
+              <p class="text-muted text-center">&emsp;</p>
             @endforelse
           </div>
         </div>

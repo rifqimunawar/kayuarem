@@ -1,6 +1,6 @@
 <div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
   <div class="section-title text-center mb-5">
-    <h1 class="display-5 mb-3"> Our Clients </h1>
+    <h1 class="display-5 mb-3"> {{ __('trans.Our Clients') }} </h1>
   </div>
   <div class="container">
 

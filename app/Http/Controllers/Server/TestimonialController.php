@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Server;
 
+use App\Helpers\Fungsi;
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -75,6 +76,10 @@ class TestimonialController extends Controller
       $newFileName = 'testimonial_' . now()->format('YmdHis') . '.' . $extension;
       $request->file('img')->move(public_path('img'), $newFileName);
       $data['img'] = $newFileName;
+    }
+
+    if ($request->filled('deskripsi')) {
+      $data['deskripsi'] = Fungsi::inputTranslate($request->deskripsi);
     }
 
     // Cek apakah ini update atau create

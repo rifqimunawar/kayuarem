@@ -1,7 +1,7 @@
 <div class="bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
   <div class="container">
     <div class="section-title text-center">
-      <h1 class="display-5 mb-5">Testimonial</h1>
+      <h1 class="display-5 mb-5">{{ __('trans.Testimonial') }}</h1>
     </div>
     <div class="owl-carousel testimonial-carousel">
 

@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class Categori_Products extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, HasTranslations;
   protected $guarded = [];
   protected $table = 'categori_products';
 
@@ -32,4 +33,9 @@ class Categori_Products extends Model
   {
     return $this->hasMany(Product::class, 'categori_id');
   }
+
+  public array $translatable =
+    [
+      'categori',
+    ];
 }

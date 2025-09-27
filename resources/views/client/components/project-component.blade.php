@@ -1,7 +1,7 @@
 <div class="container-xxl py-5">
   <div class="container">
     <div class="section-title text-center">
-      <h1 class="display-5 mb-5">Our Projects</h1>
+      <h1 class="display-5 mb-5">{{ __('trans.Our Project') }}</h1>
     </div>
     {{-- <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
       <div class="col-12 text-center">

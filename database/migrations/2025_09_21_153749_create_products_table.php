@@ -13,7 +13,7 @@ return new class extends Migration {
     Schema::create('products', function (Blueprint $table) {
       $table->uuid('id')->primary();
       $table->string('img')->nullable();
-      $table->string('nama_produk')->nullable();
+      $table->text('nama_produk')->nullable();
       $table->decimal('nominal', 18)->nullable();
       $table->string('categori_id')->nullable();
       $table->text('deskripsi')->nullable();

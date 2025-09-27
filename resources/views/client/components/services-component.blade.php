@@ -6,16 +6,16 @@
 <div class="container-xxl py-5">
   <div class="container">
     <div class="section-title text-center">
-      <h1 class="display-5 mb-5">Our Gallery</h1>
+      <h1 class="display-5 mb-5">{{ __('trans.Our Gallery') }}</h1>
     </div>
 
     <!-- Filter Buttons -->
     <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
       <div class="col-12 text-center">
         <ul class="list-inline mb-5" id="portfolio-flters">
-          <li class="mx-2 active" data-filter="*">All</li>
-          <li class="mx-2" data-filter=".image">Image</li>
-          <li class="mx-2" data-filter=".video">Video</li>
+          <li class="mx-2 active" data-filter="*">{{ __('trans.All') }}</li>
+          <li class="mx-2" data-filter=".image">{{ __('trans.Image') }}</li>
+          <li class="mx-2" data-filter=".video">{{ __('trans.Video') }}</li>
         </ul>
       </div>
     </div>

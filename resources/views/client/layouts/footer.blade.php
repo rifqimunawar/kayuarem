@@ -6,7 +6,7 @@
   <div class="container py-5">
     <div class="row g-5">
       <div class="col-lg-4 col-md-6">
-        <h4 class="text-light mb-4">Address</h4>
+        <h4 class="text-light mb-4">{{ __('trans.Address') }}</h4>
         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ GetData::getAlamat() }}</p>
         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ GetData::getTelp() }}</p>
         <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ GetData::getEmail() }}</p>
@@ -41,18 +41,18 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-6">
-        <h4 class="text-light mb-4">Catgory Artikel</h4>
+        <h4 class="text-light mb-4">{{ __('trans.Category Article') }}</h4>
         @foreach ($dataCatNews as $item)
           <a class="btn btn-link" href="{{ route('newsByCategory', $item->id) }}">{{ $item->categori }}</a>
         @endforeach
       </div>
       <div class="col-lg-4 col-md-6">
-        <h4 class="text-light mb-4">Quick Links</h4>
-        <a class="btn btn-link" href="{{ route('aboutpage') }}">About Us</a>
-        <a class="btn btn-link" href="{{ route('servicespage') }}">Our Gallery</a>
-        <a class="btn btn-link" href="{{ route('contactpage') }}">Contact Us</a>
-        <a class="btn btn-link" href="{{ route('productpage') }}">Our Product</a>
-        <a class="btn btn-link" href="{{ route('projectpage') }}">Our Projects</a>
+        <h4 class="text-light mb-4">{{ __('trans.Quick Links') }}</h4>
+        <a class="btn btn-link" href="{{ route('aboutpage') }}">{{ __('trans.About Us') }}</a>
+        <a class="btn btn-link" href="{{ route('servicespage') }}">{{ __('trans.Our Gallery') }}</a>
+        <a class="btn btn-link" href="{{ route('contactpage') }}">{{ __('trans.Contact Us') }}</a>
+        <a class="btn btn-link" href="{{ route('productpage') }}">{{ __('trans.Our Products') }}</a>
+        <a class="btn btn-link" href="{{ route('projectpage') }}">{{ __('trans.Our Projects') }}</a>
       </div>
     </div>
   </div>
@@ -60,11 +60,11 @@
     <div class="copyright">
       <div class="row">
         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-          &copy; <a class="border-bottom" href="#">{{ GetData::getNamaWeb() }}</a>, All Right Reserved.
+          &copy; <a class="border-bottom" href="#">{{ GetData::getNamaWeb() }}</a>,
+          {{ __('trans.All Right Reserved') }}.
         </div>
         <div class="col-md-6 text-center text-md-end">
-          <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-          Designed By <a class="border-bottom" href="https://technoart.id">Technoart.Id</a>
+          {{ __('trans.Designed By') }} <a class="border-bottom" href="https://technoart.id">Technoart.Id</a>
         </div>
       </div>
     </div>

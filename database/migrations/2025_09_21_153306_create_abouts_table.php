@@ -15,11 +15,11 @@ return new class extends Migration {
       $table->string('img');
       $table->string('jumlah_client');
       $table->string('jumlah_project');
-      $table->string('deskripsi');
+      $table->text('deskripsi');
       $table->text('visi')->nullable();
       $table->text('misi')->nullable();
       $table->text('slogan')->nullable();
-      $table->text('img_slogan')->nullable();
+      $table->string('img_slogan')->nullable();
       $table->text('deskripsi_slogan')->nullable();
 
       $table->softDeletes();

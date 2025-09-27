@@ -17,7 +17,8 @@
                   <h1 class="display-3 text-white animated slideInDown mb-4" style="font-size: 35px">{{ $item->judul }}
                   </h1>
                   <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ $item->deskripsi }}</p>
-                  <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                  <a href=""
+                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{{ __('trans.Read More') }}</a>
                   {{-- <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Free Quote</a> --}}
                 </div>
               </div>

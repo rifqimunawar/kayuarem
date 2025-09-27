@@ -33,14 +33,14 @@
       <div class="nav-item dropdown">
         <a href="{{ route('productpage') }}"
           class="nav-link dropdown-toggle
-           {{ request()->is('product') || request()->is('product/category/*') || request()->is('product/*') ? 'active' : '' }}"
+            {{ request()->is('product') || request()->is('product/category/*') || request()->is('product/*') ? 'active' : '' }}"
           data-bs-toggle="dropdown">
           {{ __('trans.Product') }}
         </a>
 
         <div class="dropdown-menu fade-up m-0">
           <a href="{{ route('productpage') }}" class="dropdown-item {{ request()->is('product') ? 'active' : '' }}">
-            All
+            {{ __('trans.All') }}
           </a>
           @foreach ($dataCatProduct as $item)
             <a href="{{ route('productByCategory', $item->id) }}"
@@ -59,7 +59,7 @@
         </a>
         <div class="dropdown-menu fade-up m-0">
           <a href="{{ route('newspage') }}" class="dropdown-item {{ request()->is('news') ? 'active' : '' }}">
-            All
+            {{ __('trans.All') }}
           </a>
           @foreach ($dataCatNews as $item)
             <a href="{{ route('newsByCategory', $item->id) }}"
@@ -70,7 +70,7 @@
         </div>
       </div>
 
-      {{-- <div class="nav-item dropdown">
+      <div class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
           🌐 {{ strtoupper(app()->getLocale()) }}
         </a>
@@ -80,7 +80,7 @@
           <a class="dropdown-item {{ app()->getLocale() == 'id' ? 'active' : '' }}"
             href="{{ request()->fullUrlWithQuery(['lang' => 'id']) }}">🇮🇩 Indonesia</a>
         </div>
-      </div> --}}
+      </div>
 
       <a href="{{ route('contactpage') }}"
         class="nav-item nav-link {{ request()->routeIs('contactpage') ? 'active' : '' }}">

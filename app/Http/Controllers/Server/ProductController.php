@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Server;
 
+use App\Helpers\Fungsi;
 use App\Http\Controllers\Controller;
 use App\Models\Categori_Products;
 use App\Models\Product;
@@ -79,6 +80,13 @@ class ProductController extends Controller
       $newFileName = 'product_' . now()->format('YmdHis') . '.' . $extension;
       $request->file('img')->move(public_path('img'), $newFileName);
       $data['img'] = $newFileName;
+    }
+
+    if ($request->filled('nama_produk')) {
+      $data['nama_produk'] = Fungsi::inputTranslate($request->nama_produk);
+    }
+    if ($request->filled('deskripsi')) {
+      $data['deskripsi'] = Fungsi::inputTranslate($request->deskripsi);
     }
 
     // Cek apakah ini update atau create

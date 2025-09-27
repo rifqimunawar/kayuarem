@@ -33,11 +33,11 @@ class AboutsTableSeeder extends Seeder
 4. Mengembangkan inovasi produk sesuai kebutuhan pasar lokal dan global, baik untuk konstruksi, interior, maupun dekorasi.
 5. Memberdayakan masyarakat sekitar dengan membuka lapangan kerja dan pelatihan keterampilan berbasis industri kayu.',
                 'slogan' => 'kayu mu adalah kayu terbaik',
-                'img_slogan' => 'img_slogan_20250927015005.jpg',
+                'img_slogan' => 'img_slogan_20250927021154.png',
                 'deskripsi_slogan' => 'deskripsi untuk slogan',
                 'deleted_at' => NULL,
                 'created_at' => NULL,
-                'updated_at' => '2025-09-27 01:50:05',
+                'updated_at' => '2025-09-27 02:11:54',
             ),
         ));
         

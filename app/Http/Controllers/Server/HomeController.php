@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Server;
 
+use App\Helpers\Fungsi;
 use App\Models\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -64,6 +65,15 @@ class HomeController extends Controller
       $data['img'] = $newFileName;
     }
 
+    if ($request->filled('judul')) {
+      $data['judul'] = Fungsi::inputTranslate($request->judul);
+    }
+    if ($request->filled('slogan')) {
+      $data['slogan'] = Fungsi::inputTranslate($request->slogan);
+    }
+    if ($request->filled('deskripsi')) {
+      $data['deskripsi'] = Fungsi::inputTranslate($request->deskripsi);
+    }
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
       $dataUpate = Home::findOrFail($request->id);

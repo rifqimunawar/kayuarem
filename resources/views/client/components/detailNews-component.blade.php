@@ -34,7 +34,7 @@
       <div class="col-md-4">
         <div class="card border-0 shadow-sm">
           <div class="card-header bg-primary">
-            <h5 class="mb-0  text-white">Berita Lainnya</h5>
+            <h5 class="mb-0  text-white">{{ __('trans.Other Article') }}</h5>
           </div>
           <div class="card-body">
             @forelse ($dataNews as $item)
@@ -51,7 +51,7 @@
                 </div>
               </a>
             @empty
-              <p class="text-muted text-center">Tidak ada</p>
+              <p class="text-muted text-center">&emsp;</p>
             @endforelse
           </div>
         </div>

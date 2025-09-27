@@ -15,7 +15,7 @@ return new class extends Migration {
       $table->string('img')->nullable();
       $table->string('nama')->nullable();
       $table->string('profesi')->nullable();
-      $table->string('deskripsi')->nullable();
+      $table->text('deskripsi')->nullable();
 
       $table->softDeletes();
       $table->timestamps();

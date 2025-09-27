@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Server;
 
+use App\Helpers\Fungsi;
 use App\Http\Controllers\Controller;
 use App\Models\Categori_Project;
 use Illuminate\Http\Request;
@@ -64,6 +65,9 @@ class CategoriProjectController extends Controller
       $data['img'] = $newFileName;
     }
 
+    if ($request->filled('categori')) {
+      $data['categori'] = Fungsi::inputTranslate($request->categori);
+    }
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
       $dataUpate = Categori_Project::findOrFail($request->id);

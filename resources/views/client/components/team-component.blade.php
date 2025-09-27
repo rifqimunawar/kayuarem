@@ -1,7 +1,7 @@
 <div class="container-xxl py-5">
   <div class="container">
     <div class="section-title text-center">
-      <h1 class="display-5 mb-5">Team Members</h1>
+      <h1 class="display-5 mb-5">{{ __('trans.Team Members') }}</h1>
     </div>
     <div class="row g-4">
 

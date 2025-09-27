@@ -18,33 +18,6 @@
             @csrf
 
             <div class="row">
-              {{-- <div class="col-md-12 mb-3">
-                <label for="jumlah_client" class="form-label">
-                  Jumlah Client <span class="text-danger">*</span>
-                </label>
-                <input type="number" class="form-control @error('jumlah_client') is-invalid @enderror" id="jumlah_client"
-                  name="jumlah_client" value="{{ old('jumlah_client', $data->jumlah_client ?? '') }}"
-                  placeholder="Masukkan jumlah_client..." required>
-                @error('jumlah_client')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-              <div class="col-md-12 mb-3">
-                <label for="jumlah_project" class="form-label">
-                  Jumlah Project <span class="text-danger">*</span>
-                </label>
-                <input type="number" class="form-control @error('jumlah_project') is-invalid @enderror"
-                  id="jumlah_project" name="jumlah_project"
-                  value="{{ old('jumlah_project', $data->jumlah_project ?? '') }}"
-                  placeholder="Masukkan jumlah_project..." required>
-                @error('jumlah_project')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div> --}}
 
 
               {{-- Visi --}}

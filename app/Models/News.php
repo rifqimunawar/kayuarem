@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
-  use SoftDeletes;
+  use SoftDeletes, HasTranslations;
   protected $guarded = [];
   // uuid
   public $incrementing = false;
@@ -30,5 +31,9 @@ class News extends Model
   {
     return $this->belongsTo(Categori_News::class, 'categori_id');
   }
-
+  public array $translatable =
+    [
+      'judul',
+      'deskripsi',
+    ];
 }

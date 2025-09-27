@@ -16,7 +16,7 @@
         </div>
 
         <div class="mb-4">
-          <h5 class="mb-3">Deskripsi Produk</h5>
+          <h5 class="mb-3">&emsp;</h5>
           <p class="text-muted lh-lg">
             {{ $dataDetailService->deskripsi }}
           </p>
@@ -26,7 +26,7 @@
       <div class="col-md-4">
         <div class="card border-0 shadow-sm">
           <div class="card-header bg-primary">
-            <h5 class="mb-0  text-white">Services Lainnya</h5>
+            <h5 class="mb-0  text-white">{{ __('trans.Other Gallery') }}</h5>
           </div>
           <div class="card-body">
             @forelse ($dataServices as $item)
@@ -43,7 +43,7 @@
                 </div>
               </a>
             @empty
-              <p class="text-muted text-center">Tidak ada service</p>
+              <p class="text-muted text-center">&emsp;</p>
             @endforelse
           </div>
         </div>

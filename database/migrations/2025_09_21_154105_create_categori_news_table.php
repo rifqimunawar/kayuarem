@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::create('categori_news', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('categori')->nullable();
+      $table->text('categori')->nullable();
 
       $table->softDeletes();
       $table->timestamps();
