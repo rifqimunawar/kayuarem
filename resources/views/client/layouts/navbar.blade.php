@@ -11,6 +11,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
+
       <a href="{{ route('homepage') }}" class="nav-item nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}">
         {{ __('trans.Home') }}
       </a>

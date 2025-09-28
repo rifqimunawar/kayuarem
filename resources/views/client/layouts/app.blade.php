@@ -18,9 +18,6 @@
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {{-- <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-    rel="stylesheet"> --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
@@ -75,8 +72,8 @@
 
 
   <!-- JavaScript Libraries -->
+  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('assets_client/lib/wow/wow.min.js') }}"></script>
   <script src="{{ asset('assets_client/lib/easing/easing.min.js') }}"></script>
   <script src="{{ asset('assets_client/lib/waypoints/waypoints.min.js') }}"></script>

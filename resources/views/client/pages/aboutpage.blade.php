@@ -13,20 +13,12 @@
       </nav>
     </div>
   </div>
-  <!-- Page Header End -->
-
-  <!-- About Start -->
   @include('client.components.about-component')
-  <!-- About End -->
-
-  <!-- About Start -->
   @include('client.components.visimisi-component')
-  <!-- About End -->
-
   @include('client.components.slogan-component')
   @include('client.components.milestone-component')
-  <!-- Team Start -->
   @include('client.components.team-component')
-  <!-- Team End -->
   <input type="hidden" name="redirect_to" value="{{ url()->full() }}">
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
