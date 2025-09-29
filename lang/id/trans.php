@@ -50,6 +50,7 @@ return [
   'Subject' => 'Subjek',
   'Message' => 'Pesan',
   'Send Message' => 'Kirim Pesan',
+  'Read Less' => 'Lebih Sedikit',
 
 
   // Footer
