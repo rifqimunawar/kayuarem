@@ -22,10 +22,10 @@ class CategoriProductsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => '225d4e98-0abd-41e7-9100-ce42e3e7c12f',
-                'categori' => '{"id":"Dekorasi Rumah","en":"Home decoration"}',
+                'categori' => 'Perlengkapan Cafe',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 01:17:41',
-                'updated_at' => '2025-09-27 15:45:41',
+                'updated_at' => '2025-09-25 22:01:33',
             ),
             1 => 
             array (
@@ -38,10 +38,10 @@ class CategoriProductsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 'b4bd8a94-8441-4fb0-b851-018557d75f45',
-                'categori' => '{"id":"Perlengkapan Cafe","en":"Cafe equipment"}',
+                'categori' => 'Home Decor',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 11:34:56',
-                'updated_at' => '2025-09-27 15:41:22',
+                'updated_at' => '2025-09-25 22:01:48',
             ),
         ));
         

@@ -59,13 +59,13 @@ class ProductsTableSeeder extends Seeder
             array (
                 'id' => 'd0ba5a33-27b8-4a07-b958-4cae5bd9b4a9',
                 'img' => 'product_20250925220229.jpeg',
-                'nama_produk' => '{"id":"Nomor Meja ACP","en":"ACP table number"}',
+                'nama_produk' => 'Nomor Meja ACP',
                 'nominal' => 10000,
-                'categori_id' => 'b4bd8a94-8441-4fb0-b851-018557d75f45',
-                'deskripsi' => '{"id":"Nomor meja ACP","en":"ACP table number"}',
+                'categori_id' => '225d4e98-0abd-41e7-9100-ce42e3e7c12f',
+                'deskripsi' => 'test',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-25 22:02:29',
-                'updated_at' => '2025-09-27 15:45:58',
+                'updated_at' => '2025-09-25 22:02:29',
             ),
         ));
         

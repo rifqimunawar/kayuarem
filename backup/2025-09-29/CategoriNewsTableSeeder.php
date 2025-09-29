@@ -30,10 +30,10 @@ class CategoriNewsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 'f25ff747-15b2-4e2f-92de-2c7880fce1b1',
-                'categori' => '{"id":"Kegiatan & Event","en":"Activities and events"}',
+                'categori' => 'Kegiatan & Event',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 01:05:19',
-                'updated_at' => '2025-09-27 15:42:22',
+                'updated_at' => '2025-09-23 09:58:44',
             ),
             2 => 
             array (
@@ -46,26 +46,26 @@ class CategoriNewsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => '5dedce96-f089-47b6-bcae-4ec405c68611',
-                'categori' => '{"id":"Kegiatan Sosial / CSR","en":"Social Activities / CSR"}',
+                'categori' => 'Kegiatan Sosial / CSR',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-23 09:58:59',
-                'updated_at' => '2025-09-27 15:42:14',
+                'updated_at' => '2025-09-23 09:58:59',
             ),
             4 => 
             array (
                 'id' => 'b712b24d-2840-4d2f-9e5e-4de59b393053',
-                'categori' => '{"id":"Produk & Inovasi","en":"Products & Innovations"}',
+                'categori' => 'Produk & Inovasi',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-23 09:59:38',
-                'updated_at' => '2025-09-27 15:42:06',
+                'updated_at' => '2025-09-23 09:59:38',
             ),
             5 => 
             array (
                 'id' => 'ff1485f4-4fe4-45ec-9da9-a34ce1eb4732',
-                'categori' => '{"id":"Tips & Inspirasi Interior","en":"Interior Tips & Inspiration"}',
+                'categori' => 'Tips & Inspirasi Interior',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-23 10:00:00',
-                'updated_at' => '2025-09-27 15:41:58',
+                'updated_at' => '2025-09-23 10:00:00',
             ),
             6 => 
             array (

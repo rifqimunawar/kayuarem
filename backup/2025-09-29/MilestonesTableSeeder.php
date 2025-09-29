@@ -23,46 +23,46 @@ class MilestonesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'title' => '2006',
-                'deskripsi' => '{"id":"Perusahaan di dirikan","en":"Company founded"}',
+                'deskripsi' => 'Perusahaan di dirikan',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-27 01:58:24',
-                'updated_at' => '2025-09-27 15:39:37',
+                'updated_at' => '2025-09-27 01:58:24',
             ),
             1 => 
             array (
                 'id' => 2,
                 'title' => '2007',
-                'deskripsi' => '{"id":"Membuka Cabang Bandung","en":"Open the Bandung branch"}',
+                'deskripsi' => 'Perusahaan Membuka Cabang bandugn',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-27 01:59:24',
-                'updated_at' => '2025-09-27 15:39:28',
+                'updated_at' => '2025-09-27 01:59:24',
             ),
             2 => 
             array (
                 'id' => 3,
                 'title' => '2010',
-                'deskripsi' => '{"id":"Membuka Cabang di jakarta","en":"Open branches in Jakarta"}',
+                'deskripsi' => 'Membuka Cabang di jakarta',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-27 02:01:02',
-                'updated_at' => '2025-09-27 15:39:12',
+                'updated_at' => '2025-09-27 02:01:02',
             ),
             3 => 
             array (
                 'id' => 4,
                 'title' => '2015',
-                'deskripsi' => '{"id":"Membuka Cabang di Bali","en":"Opening Branches in Bali"}',
+                'deskripsi' => 'Membuka Cabang di Bali',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-27 02:24:00',
-                'updated_at' => '2025-09-27 15:39:06',
+                'updated_at' => '2025-09-27 02:24:00',
             ),
             4 => 
             array (
                 'id' => 5,
                 'title' => '2019',
-                'deskripsi' => '{"id":"Membuka Cabang di Papua","en":"Opening Branches in Papua"}',
+                'deskripsi' => 'Membuka Cabang di Papua',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-27 02:24:19',
-                'updated_at' => '2025-09-27 15:38:59',
+                'updated_at' => '2025-09-27 02:24:19',
             ),
         ));
         

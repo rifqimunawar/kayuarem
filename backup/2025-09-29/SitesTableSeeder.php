@@ -23,7 +23,7 @@ class SitesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'site_name' => 'Kayu Arem - Membawa Cerita di Setiap Detail Karya',
-                'logo' => 'logo_20250929111745.png',
+                'logo' => 'logo_20250925211229.jpeg',
                 'alamat' => 'Workshop & Office
 Perumahan Mega Regency Blok G29 No.26 RT 05 / RW 20,Desa Sukaragam, Kec. Serang Baru, Kab. Bekasi,Provinsi Jawa Barat (17332)',
                 'link_ig' => 'https://shopee.co.id/kayuarem',
@@ -41,7 +41,7 @@ Perumahan Mega Regency Blok G29 No.26 RT 05 / RW 20,Desa Sukaragam, Kec. Serang 
                 'slogan' => 'gggg',
                 'deleted_at' => NULL,
                 'created_at' => NULL,
-                'updated_at' => '2025-09-29 11:17:45',
+                'updated_at' => '2025-09-26 08:34:56',
             ),
         ));
         
