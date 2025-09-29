@@ -30,12 +30,14 @@ return [
   // Project
   'Our Project' => 'Our Project',
   'Our Projects' => 'Our Projects',
+  'Project Descrioption' => 'Project Description',
+  'Other Project' => 'Other Project',
 
   // Product
   'Our Product' => 'Our Product',
   'Our Products' => 'Our Products',
   'Other Products' => 'Other Products',
-  'Product Descrioption' => 'Product Descrioption',
+  'Product Descrioption' => 'Product Description',
 
   // Article
   'Articles' => 'Articles',
@@ -50,6 +52,7 @@ return [
   'Subject' => 'Subject',
   'Message' => 'Message',
   'Send Message' => 'Send Message',
+  'Read Less' => 'Read Less',
 
   // Footer
   'Address' => 'Address',

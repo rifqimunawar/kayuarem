@@ -351,6 +351,82 @@ class AppController extends Controller
     );
   }
 
+  public function projectByCategory($id)
+  {
+    // Validasi kategori produk
+    $dataCatProjectById = Categori_Project::findOrFail($id);
+    $dataProjectByCategory = Project::where('categori_id', $id)->latest()->get();
+
+    // Data umum (bisa dirapikan lebih lanjut nanti)
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    return view('client.pages.detailcatprojectpage', [
+      'dataTeam' => $dataTeam,
+      'dataNews' => $dataNews,
+      'dataHome' => $dataHome,
+      'dataAbout' => $dataAbout,
+      'dataProject' => $dataProject,
+      'dataCatNews' => $dataCatNews,
+      'dataProduct' => $dataProduct,
+      'dataServices' => $dataServices,
+      'dataCatProject' => $dataCatProject,
+      'dataCatProduct' => $dataCatProduct,
+      'dataTestimonial' => $dataTestimonial,
+
+      // Kategori yang dipilih
+      'dataProjectByCategory' => $dataProjectByCategory,
+      'dataCatProjectById' => $dataCatProjectById,
+    ]);
+  }
+
+
+  public function projectDetail($id)
+  {
+    $dataTeam = Team::all();
+    $dataAbout = About::first();
+    $dataHome = Home::latest()->get();
+    $dataServices = Service::latest()->get();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+    $dataProject = Project::with('category')->latest()->get();
+    $dataProduct = Product::with('category')->latest()->get();
+
+    $dataDetailProject = Project::findOrFail($id);
+    return view(
+
+      'client/pages/detailprojectpage',
+      [
+        'dataTeam' => $dataTeam,
+        'dataNews' => $dataNews,
+        'dataHome' => $dataHome,
+        'dataAbout' => $dataAbout,
+        'dataProject' => $dataProject,
+        'dataCatNews' => $dataCatNews,
+        'dataProduct' => $dataProduct,
+        'dataServices' => $dataServices,
+        'dataCatProject' => $dataCatProject,
+        'dataCatProduct' => $dataCatProduct,
+        'dataTestimonial' => $dataTestimonial,
+
+        'dataDetailProject' => $dataDetailProject,
+      ]
+    );
+  }
+
+
   public function servicesDetail($id)
   {
     $dataTeam = Team::all();

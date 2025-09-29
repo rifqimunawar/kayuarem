@@ -29,6 +29,9 @@ Route::get('/about', [AppController::class, 'about'])->name('aboutpage');
 Route::get('/services', [AppController::class, 'services'])->name('servicespage');
 Route::get('/services/{id}', [AppController::class, 'servicesDetail'])->name('serviceDetail');
 Route::get('/project', [AppController::class, 'project'])->name('projectpage');
+Route::get('/project/{id}', [AppController::class, 'projectDetail'])->name('projectDetail');
+Route::get('/project/category/{id}', [AppController::class, 'projectByCategory'])->name('projectByCategory');
+
 Route::get('/product', [AppController::class, 'product'])->name('productpage');
 Route::get('/product/{id}', [AppController::class, 'productDetail'])->name('productDetail');
 Route::get('/product/category/{id}', [AppController::class, 'productByCategory'])->name('productByCategory');

@@ -30,6 +30,8 @@ return [
   // Project
   'Our Project' => 'Proyek Kami',
   'Our Projects' => 'Proyek Kami',
+  'Project Descrioption' => 'Deskripsi Proyek',
+  'Other Project' => 'Proyek Lainnya',
 
   // Product
   'Our Product' => 'Produk Kami',

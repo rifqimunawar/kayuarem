@@ -14,7 +14,7 @@ return new class extends Migration {
       $table->id();
       $table->string('img')->nullable();
       $table->string('nama')->nullable();
-      $table->string('profesi')->nullable();
+      $table->text('profesi')->nullable();
       $table->text('deskripsi')->nullable();
 
       $table->softDeletes();

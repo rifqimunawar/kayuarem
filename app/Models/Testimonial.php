@@ -14,5 +14,6 @@ class Testimonial extends Model
   public array $translatable =
     [
       'deskripsi',
+      'profesi',
     ];
 }

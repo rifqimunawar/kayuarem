@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Server;
 
+use App\Helpers\Fungsi;
 use App\Http\Controllers\Controller;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -62,6 +63,10 @@ class TeamController extends Controller
       $newFileName = 'team_' . now()->format('YmdHis') . '.' . $extension;
       $request->file('img')->move(public_path('img'), $newFileName);
       $data['img'] = $newFileName;
+    }
+
+    if ($request->filled('posisi')) {
+      $data['posisi'] = Fungsi::inputTranslate($request->posisi);
     }
 
     // Cek apakah ini update atau create

@@ -81,6 +81,9 @@ class TestimonialController extends Controller
     if ($request->filled('deskripsi')) {
       $data['deskripsi'] = Fungsi::inputTranslate($request->deskripsi);
     }
+    if ($request->filled('profesi')) {
+      $data['profesi'] = Fungsi::inputTranslate($request->profesi);
+    }
 
     // Cek apakah ini update atau create
     if (!empty($request->id)) {

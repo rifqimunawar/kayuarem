@@ -14,7 +14,7 @@ return new class extends Migration {
       $table->id();
       $table->string('img')->nullable();
       $table->string('nama')->nullable();
-      $table->string('posisi')->nullable();
+      $table->text('posisi')->nullable();
       $table->string('deskripsi')->nullable();
       $table->string('link_ig')->nullable();
 
