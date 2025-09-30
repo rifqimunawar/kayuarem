@@ -30,84 +30,82 @@
                   </div>
                 @enderror
               </div>
+
               <div class="col-md-12 mb-3">
-                <label for="profesi" class="form-label">
-                  Profesi <span class="text-danger">*</span>
+                <label for="jk" class="form-label">
+                  Jenis Kelamin <span class="text-danger">*</span>
                 </label>
-                <input type="text" class="form-control @error('profesi') is-invalid @enderror" id="profesi"
-                  name="profesi" value="{{ old('profesi', $data->profesi ?? '') }}" placeholder="Masukkan profesi..."
-                  required>
-                @error('profesi')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
 
-              <!-- Deskripsi Field -->
-              <div class="col-md-12 mb-3">
-                <label for="deskripsi" class="form-label">
-                  Deskripsi <span class="text-danger">*</span>
-                </label>
-                <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="5"
-                  placeholder="Masukkan deskripsi..." required>{{ old('deskripsi', $data->deskripsi ?? '') }}</textarea>
-                @error('deskripsi')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-                <div class="form-text">
-                  Berikan deskripsi yang menarik dan informatif
-                </div>
-              </div>
+                <select class="form-select form-select-lg mb-3" name="jk" aria-label="Large select example">
+                  <option selected disabled>-Pilih-</option>
+                  <option value="1" {{ old('jk', $data->jk ?? '') == 1 ? 'selected' : '' }}>Pria</option>
+                  <option value="0" {{ old('jk', $data->jk ?? '') == 0 ? 'selected' : '' }}>Wanita</option>
+                </select>
 
-              <!-- Image Upload Field (Optional) -->
-              <div class="col-md-12 mb-4">
-                <label for="img" class="form-label">
-                  Gambar <span class="text-muted">(Opsional)</span>
-                </label>
-                <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
-                  name="img" accept="image/*">
-                @error('img')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <div class="form-text">
-                  Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
+                <!-- Deskripsi Field -->
+                <div class="col-md-12 mb-3">
+                  <label for="deskripsi" class="form-label">
+                    Deskripsi <span class="text-danger">*</span>
+                  </label>
+                  <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi" rows="5"
+                    placeholder="Masukkan deskripsi..." required>{{ old('deskripsi', $data->deskripsi ?? '') }}</textarea>
+                  @error('deskripsi')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                  <div class="form-text">
+                    Berikan deskripsi yang menarik dan informatif
+                  </div>
                 </div>
 
-                <!-- Image Preview -->
-                <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
-                  <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
-                    class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
-                </div>
-              </div>
-            </div>
-
-            <!-- Form Actions -->
-            <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
-            <div class="row">
-              <div class="col-12">
-                <hr class="my-4">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
-                      <i class="fas fa-undo me-1"></i>
-                      Reset Form
-                    </button>
+                <!-- Image Upload Field (Optional) -->
+                <div class="col-md-12 mb-4">
+                  <label for="img" class="form-label">
+                    Gambar <span class="text-muted">(Opsional)</span>
+                  </label>
+                  <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
+                    name="img" accept="image/*">
+                  @error('img')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                  <div class="form-text">
+                    Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
                   </div>
-                  <div>
-                    <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
-                      <i class="fas fa-arrow-left me-1"></i>
-                      Kembali
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                      <i class="fas fa-save me-1"></i>
-                      <span id="submitText">Simpan Data</span>
-                    </button>
+
+                  <!-- Image Preview -->
+                  <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
+                    <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
+                      class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
                   </div>
                 </div>
               </div>
-            </div>
+
+              <!-- Form Actions -->
+              <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
+              <div class="row">
+                <div class="col-12">
+                  <hr class="my-4">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
+                        <i class="fas fa-undo me-1"></i>
+                        Reset Form
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        Kembali
+                      </button>
+                      <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-save me-1"></i>
+                        <span id="submitText">Simpan Data</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </form>
 
         </div>

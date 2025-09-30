@@ -101,6 +101,9 @@ class Backup extends Command
       'milestones' => [
         'milestones',
       ],
+      'log_pengunjungs' => [
+        'log_pengunjungs',
+      ],
 
 
     ];

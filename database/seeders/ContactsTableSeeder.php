@@ -128,6 +128,28 @@ Nikita',
                 'created_at' => '2025-09-25 22:17:07',
                 'updated_at' => '2025-09-25 22:17:07',
             ),
+            6 => 
+            array (
+                'id' => 7,
+                'nama' => 'Harsh Mishra',
+                'email' => 'harsh.dgtlsolution@gmail.com',
+                'subject' => 'Top Ranking On Google !!',
+                'message' => 'Hi,
+
+I hope you\'re doing well.
+
+If you\'re looking to increase your website’s visibility on search engines like Google, Yahoo, and Bing, I’d be glad to share how our team can help through ethical and results-driven SEO strategies.
+
+Let me know if you\'re open to learning more, and I can send over a brief overview of our approach and services.
+
+Best regards,
+Harsh
+
+If you don’t want me to contact you again about this, reply with “No thanks”',
+                'deleted_at' => NULL,
+                'created_at' => '2025-09-30 10:31:40',
+                'updated_at' => '2025-09-30 10:31:40',
+            ),
         ));
         
         

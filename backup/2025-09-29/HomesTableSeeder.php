@@ -56,34 +56,34 @@ class HomesTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'img' => 'home_20250923093344.jpg',
-                'judul' => 'Nilai Lebih dari Sekadar Harga',
-                'slogan' => 'Kualitas Tinggi, Harga Bersahabat',
-                'deskripsi' => 'Investasi Anda tidak hanya untuk produk, tapi juga untuk kualitas, estetika, dan cerita di balik setiap karya Kayu Arem.',
+                'judul' => '{"id":"Commitment to Quality & Sustainability","en":"Commitment to Quality & Sustainability"}',
+                'slogan' => '{"id":"-","en":"-"}',
+                'deskripsi' => '{"id":"We don’t just produce high-quality wood products, we are also committed to sustainable practices. Every piece reflects responsibility toward nature and customer satisfaction.","en":"We don\'t just produce high-quality wood products, we are also committed to sustainable practices. Every piece reflects responsibility toward nature and customer satisfaction."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:05:48',
-                'updated_at' => '2025-09-23 09:33:44',
+                'updated_at' => '2025-09-29 11:22:06',
             ),
             4 => 
             array (
                 'id' => 5,
                 'img' => 'home_20250923093251.jpg',
-                'judul' => 'Sesuai Keinginan Anda',
-                'slogan' => 'Custom Design & Personalized Craft',
-                'deskripsi' => 'Ingin furnitur atau dekorasi sesuai gaya dan kebutuhan Anda? Kami siap mewujudkan ide Anda menjadi karya nyata.',
+                'judul' => '{"id":"From Nature to a More Beautiful Life","en":"From nature to a more beautiful life"}',
+                'slogan' => '{"id":"-","en":"-"}',
+                'deskripsi' => '{"id":"Wood is our source of inspiration. With precision craftsmanship, we transform it into creations that enhance homes, workplaces, and living spaces.","en":"Wood is our source of inspiration. With precision craftsmanship, we transform it into creations that enhance homes, workplaces, and living spaces."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:11:46',
-                'updated_at' => '2025-09-23 09:32:51',
+                'updated_at' => '2025-09-29 11:21:43',
             ),
             5 => 
             array (
                 'id' => 6,
                 'img' => 'home_20250923093048.jpg',
-                'judul' => 'Bahan Baku Berkualitas',
-                'slogan' => 'Kayu Terpilih, Finishing Premium',
-                'deskripsi' => 'Kami hanya menggunakan kayu berkualitas tinggi, dipadukan dengan akrilik terbaik untuk menghasilkan produk yang tahan lama, indah, dan bernilai seni.',
+                'judul' => '{"id":"Wood Solutions for Every Need","en":"Wood Solutions for Every Need"}',
+                'slogan' => '{"id":"-","en":"-"}',
+                'deskripsi' => '{"id":"From furniture and interiors to construction, we provide strong and elegant wood products designed to support modern lifestyles while preserving a natural touch.","en":"From Furniture and Interiors to Construction, We Provide Strong and Elegant Wood Products Designed to Support Modern Lifestyles While Preserving a Natural Touch."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:11:57',
-                'updated_at' => '2025-09-23 09:30:48',
+                'updated_at' => '2025-09-29 11:21:18',
             ),
             6 => 
             array (
@@ -143,13 +143,13 @@ class HomesTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
-                'img' => 'home_20250925212101.jpeg',
-                'judul' => 'Dari Kayu Jadi Karya',
-                'slogan' => 'Bukan Tukang Kayu Biasa',
-                'deskripsi' => 'Setiap karya dibuat dengan detail, sentuhan handmade, dan desain unik. Inovasi kami menjadikan kayu lebih dari sekadar material.',
+                'img' => 'home_20250929093304.jpg',
+                'judul' => '{"id":"Crafting High-Value Wood Creations","en":"Crafting High-Value Wood Creations"}',
+                'slogan' => '{"id":"-","en":"-"}',
+                'deskripsi' => '{"id":"From carefully selected timber, we deliver products with superior quality, beauty, and durability. Each piece is a blend of innovation and local craftsmanship.","en":"From Carefully Selected Timber, We Deliver Products with Superior Quality, Beauty, and Durability. Each piece is a blend of innovation and local craftsmanship."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:49:15',
-                'updated_at' => '2025-09-25 21:21:01',
+                'updated_at' => '2025-09-29 11:20:53',
             ),
         ));
         

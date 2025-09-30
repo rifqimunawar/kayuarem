@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->string('email')->nullable();
       $table->string('subject')->nullable();
       $table->text('message')->nullable();
+      $table->integer('is_read')->nullable();
 
       $table->softDeletes();
       $table->timestamps();

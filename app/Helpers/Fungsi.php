@@ -1,11 +1,26 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\LogPengunjung;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class Fungsi
 {
+
+  public static function logPengunjung($halaman = null)
+  {
+    LogPengunjung::create([
+      'ip_address' => Request::ip(),
+      'user_agent' => Request::header('User-Agent'),
+      'url' => Request::fullUrl(),
+      'user_id' => Auth::check() ? Auth::id() : null,
+      'halaman' => $halaman,
+      'visited_at' => now(),
+    ]);
+  }
 
   public static function inputTranslate(?string $text, string $from = 'id', string $to = 'en') : ?array
   {

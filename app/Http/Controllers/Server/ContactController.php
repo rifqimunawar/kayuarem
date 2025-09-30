@@ -57,7 +57,7 @@ class ContactController extends Controller
   {
     $title = "Detail";
     $data = Contact::findOrFail($id);
-
+    $data->update(['is_read' => 1]);
     return view(
       'server/contact/show',
       [

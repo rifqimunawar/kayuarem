@@ -7,12 +7,14 @@
 
       @foreach ($dataTestimonial as $item)
         <div class="testimonial-item text-center ">
-          <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('img/' . $item->img ?? '') }}"
+          <img class="img-fluid bg-light p-2 mx-auto mb-3"
+            src="{{ $item->jk == 1 ? asset('img/testimonial_pria.png') : asset('img/testimonial_wanita.png') }}"
             style="width: 120px; height: 120px; object-fit:cover; border-radius:50%;">
+
           <div class="testimonial-text text-center p-4">
             <p>{{ $item->deskripsi ?? '' }}</p>
             <h5 class="mb-1">{{ $item->nama ?? '' }}</h5>
-            <span class="fst-italic">{{ $item->profesi ?? '' }}</span>
+            {{-- <span class="fst-italic">{{ $item->profesi ?? '' }}</span> --}}
           </div>
         </div>
       @endforeach

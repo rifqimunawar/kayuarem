@@ -25,7 +25,7 @@
                   <th scope="col" class="text-center" style="width: 5%">#</th>
                   <th scope="col" class="text-center" style="width: 10%">Img</th>
                   <th scope="col" style="width: 25%">Nama</th>
-                  <th scope="col" style="width: 15%">Profesi</th>
+                  <th scope="col" style="width: 15%">JK</th>
                   <th scope="col" class="text-center" style="width: 10%">Actions</th>
                 </tr>
               </thead>
@@ -48,7 +48,15 @@
                       <strong>{{ $item->nama ?? '-' }}</strong>
                     </td>
                     <td>
-                      <strong>{{ $item->profesi ?? '-' }}</strong>
+
+                      @if ($item->jk == 1)
+                        <strong>Pria</strong>
+                      @elseif ($item->jk == 1)
+                        <strong>Wanita</strong>
+                      @else
+                        <strong>&emsp;</strong>
+                      @endif
+
                     </td>
                     <td class="text-center">
                       <div class="btn-group" role="group">

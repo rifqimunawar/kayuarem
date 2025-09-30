@@ -41,8 +41,14 @@
                     <td class="text-center">
                       <div class="btn-group" role="group">
                         <!-- Edit Button -->
-                        <a href="{{ route('show.contact', $item->id) }}" class="btn btn-sm btn-outline-warning"><i
-                            class="bi bi-eye" style="font-size: 14px"></i></a>
+
+                        @if ($item->is_read !== null)
+                          <a href="{{ route('show.contact', $item->id) }}" class="btn btn-sm btn-outline-success"><i
+                              class="bi bi-eye" style="font-size: 14px"></i></a>
+                        @else
+                          <a href="{{ route('show.contact', $item->id) }}" class="btn btn-sm btn-outline-warning"><i
+                              class="bi bi-eye" style="font-size: 14px"></i></a>
+                        @endif
 
                         <!-- Delete Button -->
                         <a href="{{ route('delete.contact', $item->id) }}" title="Hapus Data"

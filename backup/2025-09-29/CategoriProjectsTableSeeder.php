@@ -22,18 +22,18 @@ class CategoriProjectsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => '010eddf0-4c31-4f38-b4f0-c893d4e9eff8',
-                'categori' => 'Project IKN',
+                'categori' => '{"id":"Project PIK 2","en":"Project PIK 2"}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 11:29:35',
-                'updated_at' => '2025-09-22 11:29:35',
+                'updated_at' => '2025-09-27 15:41:01',
             ),
             1 => 
             array (
                 'id' => 'ad91397b-f02c-4806-a31f-8ffeedb51fff',
-                'categori' => 'Project PIK 2',
+                'categori' => '{"id":"Project IKN","en":"Project IKN"}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-22 11:29:46',
-                'updated_at' => '2025-09-22 11:29:46',
+                'updated_at' => '2025-09-27 15:40:50',
             ),
         ));
         

@@ -56,34 +56,34 @@ class HomesTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'img' => 'home_20250923093344.jpg',
-                'judul' => '{"id":"Commitment to Quality & Sustainability","en":"Commitment to Quality & Sustainability"}',
+                'judul' => '{"id":"Komitmen pada Kualitas & Keberlanjutan","en":"Commitment to quality and sustainability"}',
                 'slogan' => '{"id":"-","en":"-"}',
-                'deskripsi' => '{"id":"We don’t just produce high-quality wood products, we are also committed to sustainable practices. Every piece reflects responsibility toward nature and customer satisfaction.","en":"We don\'t just produce high-quality wood products, we are also committed to sustainable practices. Every piece reflects responsibility toward nature and customer satisfaction."}',
+                'deskripsi' => '{"id":"Kami tidak hanya menghasilkan produk kayu berkualitas, tetapi juga berkomitmen pada praktik ramah lingkungan. Setiap produk adalah wujud tanggung jawab terhadap alam dan kepuasan pelanggan.","en":"We not only produce quality wood products, but also committed to environmentally friendly practices. Each product is a form of responsibility for nature and customer satisfaction."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:05:48',
-                'updated_at' => '2025-09-29 11:22:06',
+                'updated_at' => '2025-09-29 13:37:50',
             ),
             4 => 
             array (
                 'id' => 5,
                 'img' => 'home_20250923093251.jpg',
-                'judul' => '{"id":"From Nature to a More Beautiful Life","en":"From nature to a more beautiful life"}',
+                'judul' => '{"id":"Dari Alam untuk Kehidupan yang Lebih Indah","en":"From nature to a more beautiful life"}',
                 'slogan' => '{"id":"-","en":"-"}',
-                'deskripsi' => '{"id":"Wood is our source of inspiration. With precision craftsmanship, we transform it into creations that enhance homes, workplaces, and living spaces.","en":"Wood is our source of inspiration. With precision craftsmanship, we transform it into creations that enhance homes, workplaces, and living spaces."}',
+                'deskripsi' => '{"id":"Kayu adalah sumber inspirasi kami. Dengan teknik pengerjaan presisi, kami menjadikannya karya yang mempercantik hunian, ruang kerja, dan lingkungan sekitar Anda.","en":"Wood is a source of our inspiration. With precision workmanship techniques, we make it a work that beautifies your residence, workspace, and the environment around you."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:11:46',
-                'updated_at' => '2025-09-29 11:21:43',
+                'updated_at' => '2025-09-29 13:37:22',
             ),
             5 => 
             array (
                 'id' => 6,
                 'img' => 'home_20250923093048.jpg',
-                'judul' => '{"id":"Wood Solutions for Every Need","en":"Wood Solutions for Every Need"}',
+                'judul' => '{"id":"Solusi Kayu untuk Berbagai Kebutuhan","en":"Wood solutions for various needs"}',
                 'slogan' => '{"id":"-","en":"-"}',
-                'deskripsi' => '{"id":"From furniture and interiors to construction, we provide strong and elegant wood products designed to support modern lifestyles while preserving a natural touch.","en":"From Furniture and Interiors to Construction, We Provide Strong and Elegant Wood Products Designed to Support Modern Lifestyles While Preserving a Natural Touch."}',
+                'deskripsi' => '{"id":"Mulai dari furnitur, interior, hingga konstruksi, kami menyediakan produk kayu yang kokoh dan elegan. Semua dirancang untuk mendukung gaya hidup modern tanpa melupakan sentuhan alami.","en":"Starting from furniture, interior, to construction, we provide sturdy and elegant wood products. All are designed to support a modern lifestyle without forgetting a natural touch."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:11:57',
-                'updated_at' => '2025-09-29 11:21:18',
+                'updated_at' => '2025-09-29 13:36:47',
             ),
             6 => 
             array (
@@ -144,12 +144,23 @@ class HomesTableSeeder extends Seeder
             array (
                 'id' => 12,
                 'img' => 'home_20250929093304.jpg',
-                'judul' => '{"id":"Crafting High-Value Wood Creations","en":"Crafting High-Value Wood Creations"}',
+                'judul' => '{"id":"Mewujudkan Karya Kayu Bernilai Tinggi","en":"Realizing high -value wood work"}',
                 'slogan' => '{"id":"-","en":"-"}',
-                'deskripsi' => '{"id":"From carefully selected timber, we deliver products with superior quality, beauty, and durability. Each piece is a blend of innovation and local craftsmanship.","en":"From Carefully Selected Timber, We Deliver Products with Superior Quality, Beauty, and Durability. Each piece is a blend of innovation and local craftsmanship."}',
+                'deskripsi' => '{"id":"Dari bahan kayu pilihan, kami menghadirkan produk dengan kualitas, keindahan, dan daya tahan terbaik. Setiap karya adalah perpaduan antara inovasi dan kearifan lokal.","en":"From selected wood, we present products with the best quality, beauty, and durability. Each work is a combination of local innovation and wisdom."}',
                 'deleted_at' => NULL,
                 'created_at' => '2025-09-21 18:49:15',
-                'updated_at' => '2025-09-29 11:20:53',
+                'updated_at' => '2025-09-29 13:25:17',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'img' => 'home_20250929201103.jpeg',
+                'judul' => '{"id":"Kayu yang berkualitas","en":"Quality wood"}',
+                'slogan' => '{"id":"-","en":"-"}',
+                'deskripsi' => '{"id":"Setiap Produk kami menggunakan material pilihan","en":"Each of our products uses selected material"}',
+                'deleted_at' => '2025-09-29 20:12:10',
+                'created_at' => '2025-09-29 20:11:04',
+                'updated_at' => '2025-09-29 20:12:10',
             ),
         ));
         

@@ -64,7 +64,7 @@
   <!-- Footer Start -->
   @include('client.layouts.footer')
   <!-- Footer End -->
-
+  @include('client.components.whatsapp-component')
 
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i

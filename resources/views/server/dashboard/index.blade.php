@@ -1,132 +1,83 @@
 @extends('server.layouts.app')
 @section('content-server')
-  <div class="row d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="col-md-6 col-lg-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <h5 class="card-title">Selamat Datang</h5>
-          <p class="card-text">
-            Halo, <strong>{{ Auth::user()->username }}</strong>! 👋
-          </p>
-          <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-          </form>
-          <a href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"
-            aria-expanded="false" class="btn btn-primary">
-            <i class="bi bi-box-arrow-right me-1"></i> Logout
-          </a>
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm border-0 text-center p-3">
+        <h5 class="card-title">{{ $dataProduct ?? 0 }}</h5>
+        <p class="card-text">Products</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm border-0 text-center p-3">
+        <h5 class="card-title">{{ $dataProject ?? 0 }}</h5>
+        <p class="card-text">Project</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm border-0 text-center p-3">
+        <h5 class="card-title">{{ $dataMessage ?? 0 }}</h5>
+        <p class="card-text">Message</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm border-0 text-center p-3">
+        <h5 class="card-title">{{ $dataMessageUnread ?? 0 }}</h5>
+        <p class="card-text">Message Unread</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0 p-3">
+        <h5 class="card-title">Chart</h5>
+        <div class="card-body">
+          <div id="chart"></div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+    // Ambil data dari controller
+    var dataPengunjung = @json($datePengunjung);
+
+    // Pisahkan hari & jumlah
+    var categories = dataPengunjung.map(item => item.hari);
+    var values = dataPengunjung.map(item => item.jumlah);
+
+    var options = {
+      series: [{
+        name: "Pengunjung",
+        data: values
+      }],
+      chart: {
+        type: 'area',
+        height: 250,
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        categories: categories
+      },
+      title: {
+        text: 'Kunjungan 7 Hari Terakhir',
+        align: 'left'
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  </script>
 @endsection
-
-
-
-
-{{-- <div class="col-lg-8">
-      <div class="card w-100">
-        <div class="card-body">
-          <div class="d-md-flex align-items-center">
-            <div>
-              <h4 class="card-title">Sales Overview</h4>
-              <p class="card-subtitle">
-                Ample admin Vs Pixel admin
-              </p>
-            </div>
-            <div class="ms-auto">
-              <ul class="list-unstyled mb-0">
-                <li class="list-inline-item text-primary">
-                  <span class="round-8 text-bg-primary rounded-circle me-1 d-inline-block"></span>
-                  Ample
-                </li>
-                <li class="list-inline-item text-info">
-                  <span class="round-8 text-bg-info rounded-circle me-1 d-inline-block"></span>
-                  Pixel Admin
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div id="sales-overview" class="mt-4 mx-n6"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="card overflow-hidden">
-        <div class="card-body pb-0">
-          <div class="d-flex align-items-start">
-            <div>
-              <h4 class="card-title">Weekly Stats</h4>
-              <p class="card-subtitle">Average sales</p>
-            </div>
-            <div class="ms-auto">
-              <div class="dropdown">
-                <a href="javascript:void(0)" class="text-muted" id="year1-dropdown" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="ti ti-dots fs-7"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="year1-dropdown">
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="mt-4 pb-3 d-flex align-items-center">
-            <span class="btn btn-primary rounded-circle round-48 hstack justify-content-center">
-              <i class="ti ti-shopping-cart fs-6"></i>
-            </span>
-            <div class="ms-3">
-              <h5 class="mb-0 fw-bolder fs-4">Top Sales</h5>
-              <span class="text-muted fs-3">Johnathan Doe</span>
-            </div>
-            <div class="ms-auto">
-              <span class="badge bg-secondary-subtle text-muted">+68%</span>
-            </div>
-          </div>
-          <div class="py-3 d-flex align-items-center">
-            <span class="btn btn-warning rounded-circle round-48 hstack justify-content-center">
-              <i class="ti ti-star fs-6"></i>
-            </span>
-            <div class="ms-3">
-              <h5 class="mb-0 fw-bolder fs-4">Best Seller</h5>
-              <span class="text-muted fs-3">MaterialPro Admin</span>
-            </div>
-            <div class="ms-auto">
-              <span class="badge bg-secondary-subtle text-muted">+68%</span>
-            </div>
-          </div>
-          <div class="py-3 d-flex align-items-center">
-            <span class="btn btn-success rounded-circle round-48 hstack justify-content-center">
-              <i class="ti ti-message-dots fs-6"></i>
-            </span>
-            <div class="ms-3">
-              <h5 class="mb-0 fw-bolder fs-4">Most Commented</h5>
-              <span class="text-muted fs-3">Ample Admin</span>
-            </div>
-            <div class="ms-auto">
-              <span class="badge bg-secondary-subtle text-muted">+68%</span>
-            </div>
-          </div>
-          <div class="pt-3 mb-7 d-flex align-items-center">
-            <span class="btn btn-secondary rounded-circle round-48 hstack justify-content-center">
-              <i class="ti ti-diamond fs-6"></i>
-            </span>
-            <div class="ms-3">
-              <h5 class="mb-0 fw-bolder fs-4">Top Budgets</h5>
-              <span class="text-muted fs-3">Sunil Joshi</span>
-            </div>
-            <div class="ms-auto">
-              <span class="badge bg-secondary-subtle text-muted">+15%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> --}}

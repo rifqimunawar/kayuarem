@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Helpers\Fungsi;
 use App\Models\Categori_News;
 use App\Models\Categori_Products;
 use App\Models\Home;
@@ -25,6 +26,9 @@ class AppController extends Controller
 {
   public function home()
   {
+    $halaman = "Home Page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -57,6 +61,9 @@ class AppController extends Controller
   }
   public function about()
   {
+    $halaman = "About Page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataMilestone = Milestone::all();
@@ -90,6 +97,10 @@ class AppController extends Controller
   }
   public function services()
   {
+
+    $halaman = "Gallery page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -120,6 +131,9 @@ class AppController extends Controller
   }
   public function product()
   {
+    $halaman = "Products page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -151,6 +165,9 @@ class AppController extends Controller
   }
   public function project()
   {
+    $halaman = "Project page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -181,6 +198,9 @@ class AppController extends Controller
   }
   public function contact()
   {
+    $halaman = "Contact page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -211,6 +231,9 @@ class AppController extends Controller
   }
   public function news()
   {
+    $halaman = "Artikel page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -242,6 +265,9 @@ class AppController extends Controller
 
   public function newsByCategory($id)
   {
+    $halaman = "Artile by category page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -278,6 +304,9 @@ class AppController extends Controller
   }
   public function productByCategory($id)
   {
+    $halaman = "Product by Category page";
+    Fungsi::logPengunjung($halaman);
+
     // Validasi kategori produk
     $dataCatProductById = Categori_Products::findOrFail($id);
     $dataProductByCategory = Product::where('categori_id', $id)->latest()->get();
@@ -317,6 +346,9 @@ class AppController extends Controller
 
   public function productDetail($id)
   {
+    $halaman = "Detail produk page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -353,6 +385,8 @@ class AppController extends Controller
 
   public function projectByCategory($id)
   {
+    $halaman = "Project by category page";
+    Fungsi::logPengunjung($halaman);
     // Validasi kategori produk
     $dataCatProjectById = Categori_Project::findOrFail($id);
     $dataProjectByCategory = Project::where('categori_id', $id)->latest()->get();
@@ -392,6 +426,9 @@ class AppController extends Controller
 
   public function projectDetail($id)
   {
+    $halaman = "Project detail page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -429,6 +466,9 @@ class AppController extends Controller
 
   public function servicesDetail($id)
   {
+    $halaman = "Gallery detail page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -464,6 +504,10 @@ class AppController extends Controller
   }
   public function newsDetail($id)
   {
+
+    $halaman = "Artikel detail page";
+    Fungsi::logPengunjung($halaman);
+
     $dataTeam = Team::all();
     $dataAbout = About::first();
     $dataHome = Home::latest()->get();
@@ -513,6 +557,9 @@ class AppController extends Controller
   }
   public function storeContact(Request $request)
   {
+    $halaman = "Mengirim pesan page";
+    Fungsi::logPengunjung($halaman);
+
     $data = $request->all();
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
