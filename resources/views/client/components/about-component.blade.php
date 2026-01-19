@@ -15,7 +15,12 @@
           <p class="mb-4 pb-2">{{ $dataAbout->deskripsi ?? '' }}</p>
           <div class="row g-4 mb-4 pb-2">
           </div>
-          <a href="{{ route('aboutpage') }}" class="btn btn-primary py-3 px-5">{{ __('trans.Read More') }}</a>
+
+          <a href="{{ request()->is('about') ? route('productpage') : route('aboutpage') }}"
+            class="btn btn-primary py-3 px-5">
+            {{ __('trans.Read More') }}
+          </a>
+
         </div>
       </div>
     </div>

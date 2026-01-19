@@ -73,6 +73,29 @@
 
   <!-- JavaScript Libraries -->
   {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get("lang");
+
+      if (lang) {
+        localStorage.setItem("lang", lang);
+      }
+      const savedLang = localStorage.getItem("lang");
+      if (savedLang) {
+        document.querySelectorAll("a[href]").forEach(link => {
+          const url = new URL(link.href, window.location.origin);
+          if (!url.searchParams.has("lang")) {
+            url.searchParams.set("lang", savedLang);
+            link.href = url.toString();
+          }
+        });
+      }
+    });
+  </script>
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="{{ asset('assets_client/lib/wow/wow.min.js') }}"></script>
   <script src="{{ asset('assets_client/lib/easing/easing.min.js') }}"></script>
