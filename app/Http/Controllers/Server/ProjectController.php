@@ -89,6 +89,12 @@ class ProjectController extends Controller
       $data['deskripsi'] = Fungsi::inputTranslate($request->deskripsi);
     }
 
+    $request->validate([
+      'sort' => 'nullable|unique:projects,sort'
+    ], [
+      'sort.unique' => 'No urut sudah digunakan!'
+    ]);
+
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
       $dataUpate = Project::findOrFail($request->id);

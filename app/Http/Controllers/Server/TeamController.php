@@ -69,6 +69,12 @@ class TeamController extends Controller
       $data['posisi'] = Fungsi::inputTranslate($request->posisi);
     }
 
+    $request->validate([
+      'sort' => 'nullable|unique:teams,sort'
+    ], [
+      'sort.unique' => 'No urut sudah digunakan!'
+    ]);
+
     // Cek apakah ini update atau create
     if (!empty($request->id)) {
       $dataUpate = Team::findOrFail($request->id);

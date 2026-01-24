@@ -8,7 +8,7 @@ return new class extends Migration {
   /**
    * Run the migrations.
    */
-  public function up() : void
+  public function up(): void
   {
     Schema::create('homes', function (Blueprint $table) {
       $table->id();
@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->text('judul')->nullable();
       $table->text('slogan')->nullable();
       $table->text('deskripsi')->nullable();
+      $table->integer('sort')->nullable();
 
       $table->softDeletes();
       $table->timestamps();
@@ -25,7 +26,7 @@ return new class extends Migration {
   /**
    * Reverse the migrations.
    */
-  public function down() : void
+  public function down(): void
   {
     Schema::dropIfExists('homes');
   }

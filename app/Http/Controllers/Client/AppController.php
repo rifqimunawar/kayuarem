@@ -29,53 +29,58 @@ class AppController extends Controller
     $halaman = "Home Page";
     Fungsi::logPengunjung($halaman);
 
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataClient = Client::orderBy('sort', 'asc')->get();
+    $dataServices = Service::take(6)->orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap pakai latest()
     $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataClient = Client::latest()->get();
-    $dataServices = Service::take(6)->latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
     $dataNews = News::with('category')->take(6)->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
-    return view(
-      'client/pages/homepage',
-      [
-        'dataTeam' => $dataTeam,
-        'dataNews' => $dataNews,
-        'dataHome' => $dataHome,
-        'dataAbout' => $dataAbout,
-        'dataClient' => $dataClient,
-        'dataProject' => $dataProject,
-        'dataCatNews' => $dataCatNews,
-        'dataProduct' => $dataProduct,
-        'dataServices' => $dataServices,
-        'dataCatProject' => $dataCatProject,
-        'dataCatProduct' => $dataCatProduct,
-        'dataTestimonial' => $dataTestimonial,
-      ]
-    );
+
+    return view('client/pages/homepage', [
+      'dataTeam' => $dataTeam,
+      'dataNews' => $dataNews,
+      'dataHome' => $dataHome,
+      'dataAbout' => $dataAbout,
+      'dataClient' => $dataClient,
+      'dataProject' => $dataProject,
+      'dataCatNews' => $dataCatNews,
+      'dataProduct' => $dataProduct,
+      'dataServices' => $dataServices,
+      'dataCatProject' => $dataCatProject,
+      'dataCatProduct' => $dataCatProduct,
+      'dataTestimonial' => $dataTestimonial,
+    ]);
   }
+
   public function about()
   {
     $halaman = "About Page";
     Fungsi::logPengunjung($halaman);
 
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
     $dataAbout = About::first();
     $dataMilestone = Milestone::all();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
     $dataNews = News::with('category')->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
 
     return view(
       'client/pages/aboutpage',
@@ -97,21 +102,24 @@ class AppController extends Controller
   }
   public function services()
   {
-
     $halaman = "Gallery page";
     Fungsi::logPengunjung($halaman);
 
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
     $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
     $dataNews = News::with('category')->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
+
     return view(
       'client/pages/servicespage',
       [
@@ -134,19 +142,22 @@ class AppController extends Controller
     $halaman = "Products page";
     Fungsi::logPengunjung($halaman);
 
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
     $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
     $dataNews = News::with('category')->latest()->get();
     $dataCatNews = Categori_News::latest()->get();
-    return view(
 
+    return view(
       'client/pages/productpage',
       [
         'dataHome' => $dataHome,
@@ -168,17 +179,21 @@ class AppController extends Controller
     $halaman = "Project page";
     Fungsi::logPengunjung($halaman);
 
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
     $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
     $dataNews = News::with('category')->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
+
     return view(
       'client/pages/projectpage',
       [
@@ -196,6 +211,7 @@ class AppController extends Controller
       ]
     );
   }
+
   public function contact()
   {
     $halaman = "Contact page";
@@ -309,20 +325,22 @@ class AppController extends Controller
 
     // Validasi kategori produk
     $dataCatProductById = Categori_Products::findOrFail($id);
-    $dataProductByCategory = Product::where('categori_id', $id)->latest()->get();
+    $dataProductByCategory = Product::where('categori_id', $id)->orderBy('sort', 'asc')->get();
 
-    // Data umum (bisa dirapikan lebih lanjut nanti)
-    $dataTeam = Team::all();
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
     $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
     $dataCatNews = Categori_News::latest()->get();
     $dataTestimonial = Testimonial::latest()->get();
     $dataCatProject = Categori_Project::latest()->get();
     $dataNews = News::with('category')->latest()->get();
     $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
 
     return view('client.pages.detailcatproductpage', [
       'dataTeam' => $dataTeam,
@@ -340,6 +358,49 @@ class AppController extends Controller
       // Kategori yang dipilih
       'dataProductByCategory' => $dataProductByCategory,
       'dataCatProductById' => $dataCatProductById,
+    ]);
+  }
+
+  public function projectByCategory($id)
+  {
+    $halaman = "Project by category page";
+    Fungsi::logPengunjung($halaman);
+
+    // Validasi kategori project
+    $dataCatProjectById = Categori_Project::findOrFail($id);
+    $dataProjectByCategory = Project::where('categori_id', $id)->orderBy('sort', 'asc')->get();
+
+    // Model dengan sorting 'sort' descending
+    $dataTeam = Team::orderBy('sort', 'asc')->get();
+    $dataHome = Home::orderBy('sort', 'asc')->get();
+    $dataServices = Service::orderBy('sort', 'asc')->get();
+    $dataProject = Project::with('category')->orderBy('sort', 'asc')->get();
+    $dataProduct = Product::with('category')->orderBy('sort', 'asc')->get();
+
+    // Model lain tetap seperti semula
+    $dataAbout = About::first();
+    $dataCatNews = Categori_News::latest()->get();
+    $dataTestimonial = Testimonial::latest()->get();
+    $dataCatProject = Categori_Project::latest()->get();
+    $dataNews = News::with('category')->latest()->get();
+    $dataCatProduct = Categori_Products::latest()->get();
+
+    return view('client.pages.detailcatprojectpage', [
+      'dataTeam' => $dataTeam,
+      'dataNews' => $dataNews,
+      'dataHome' => $dataHome,
+      'dataAbout' => $dataAbout,
+      'dataProject' => $dataProject,
+      'dataCatNews' => $dataCatNews,
+      'dataProduct' => $dataProduct,
+      'dataServices' => $dataServices,
+      'dataCatProject' => $dataCatProject,
+      'dataCatProduct' => $dataCatProduct,
+      'dataTestimonial' => $dataTestimonial,
+
+      // Kategori yang dipilih
+      'dataProjectByCategory' => $dataProjectByCategory,
+      'dataCatProjectById' => $dataCatProjectById,
     ]);
   }
 
@@ -382,47 +443,6 @@ class AppController extends Controller
       ]
     );
   }
-
-  public function projectByCategory($id)
-  {
-    $halaman = "Project by category page";
-    Fungsi::logPengunjung($halaman);
-    // Validasi kategori produk
-    $dataCatProjectById = Categori_Project::findOrFail($id);
-    $dataProjectByCategory = Project::where('categori_id', $id)->latest()->get();
-
-    // Data umum (bisa dirapikan lebih lanjut nanti)
-    $dataTeam = Team::all();
-    $dataAbout = About::first();
-    $dataHome = Home::latest()->get();
-    $dataServices = Service::latest()->get();
-    $dataCatNews = Categori_News::latest()->get();
-    $dataTestimonial = Testimonial::latest()->get();
-    $dataCatProject = Categori_Project::latest()->get();
-    $dataNews = News::with('category')->latest()->get();
-    $dataCatProduct = Categori_Products::latest()->get();
-    $dataProject = Project::with('category')->latest()->get();
-    $dataProduct = Product::with('category')->latest()->get();
-
-    return view('client.pages.detailcatprojectpage', [
-      'dataTeam' => $dataTeam,
-      'dataNews' => $dataNews,
-      'dataHome' => $dataHome,
-      'dataAbout' => $dataAbout,
-      'dataProject' => $dataProject,
-      'dataCatNews' => $dataCatNews,
-      'dataProduct' => $dataProduct,
-      'dataServices' => $dataServices,
-      'dataCatProject' => $dataCatProject,
-      'dataCatProduct' => $dataCatProduct,
-      'dataTestimonial' => $dataTestimonial,
-
-      // Kategori yang dipilih
-      'dataProjectByCategory' => $dataProjectByCategory,
-      'dataCatProjectById' => $dataCatProjectById,
-    ]);
-  }
-
 
   public function projectDetail($id)
   {

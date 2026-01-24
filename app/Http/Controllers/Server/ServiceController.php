@@ -57,6 +57,12 @@ class ServiceController extends Controller
   {
     $data = $request->all();
 
+    $request->validate([
+      'sort' => 'nullable|unique:services,sort'
+    ], [
+      'sort.unique' => 'No urut sudah digunakan!'
+    ]);
+
     if ($request->hasFile('img')) {
       $extension = $request->img->getClientOriginalExtension();
       $newFileName = 'service_' . now()->format('YmdHis') . '.' . $extension;

@@ -1,128 +1,143 @@
 @extends('server.layouts.app')
 @section('content-server')
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card w-100">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-              <h4 class="card-title mb-2">{{ $title ?? 'Data Management' }}</h4>
-              <p class="card-subtitle text-muted mb-0">
-                {{ $descriptionTitle ?? 'Kelola data dengan mudah dan efisien' }}
-              </p>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card w-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h4 class="card-title mb-2">{{ $title ?? 'Data Management' }}</h4>
+            <p class="card-subtitle text-muted mb-0">
+              {{ $descriptionTitle ?? 'Kelola data dengan mudah dan efisien' }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="formData" action="{{ route('store.client') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+
+          <div class="row">
+
+            <!-- Image Upload Field (Optional) -->
+            <div class="col-md-12 mb-4">
+              <label for="img" class="form-label">
+                Gambar <span class="text-muted">(Opsional)</span>
+              </label>
+              <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
+                accept="image/*">
+              @error('img')
+              <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
+              <div class="form-text">
+                Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
+              </div>
+
+              <!-- Image Preview -->
+              <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
+                <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
+                  class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+              </div>
             </div>
+
+
+            <!-- Urutan Field -->
+            <div class="col-md-12 mb-3">
+              <label for="sort" class="form-label">
+                Urutan <span class="text-danger">*</span>
+              </label>
+              <input type="number" class="form-control @error('sort') is-invalid @enderror" id="sort" name="sort"
+                value="{{ old('sort', $data->sort ?? '') }}" placeholder="Masukkan no urut...">
+              @error('sort')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
+            </div>
+
           </div>
 
-          <!-- Form -->
-          <form id="formData" action="{{ route('store.client') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-
-            <div class="row">
-
-              <!-- Image Upload Field (Optional) -->
-              <div class="col-md-12 mb-4">
-                <label for="img" class="form-label">
-                  Gambar <span class="text-muted">(Opsional)</span>
-                </label>
-                <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"
-                  name="img" accept="image/*">
-                @error('img')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <div class="form-text">
-                  Format yang didukung: JPG, PNG, GIF. Maksimal 2MB
+          <!-- Form Actions -->
+          <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
+          <div class="row">
+            <div class="col-12">
+              <hr class="my-4">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
+                    <i class="fas fa-undo me-1"></i>
+                    Reset Form
+                  </button>
                 </div>
-
-                <!-- Image Preview -->
-                <div id="imagePreview" class="mt-2" style="{{ !empty($data->img) ? '' : 'display:none;' }}">
-                  <img id="previewImg" src="{{ !empty($data->img) ? asset('img/' . $data->img) : '' }}" alt="Preview"
-                    class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Form Actions -->
-            <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
-            <div class="row">
-              <div class="col-12">
-                <hr class="my-4">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <button type="button" class="btn btn-outline-secondary" onclick="resetForm()">
-                      <i class="fas fa-undo me-1"></i>
-                      Reset Form
-                    </button>
-                  </div>
-                  <div>
-                    <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
-                      <i class="fas fa-arrow-left me-1"></i>
-                      Kembali
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                      <i class="fas fa-save me-1"></i>
-                      <span id="submitText">Simpan Data</span>
-                    </button>
-                  </div>
+                <div>
+                  <button type="button" class="btn btn-secondary me-2" onclick="window.history.back()">
+                    <i class="fas fa-arrow-left me-1"></i>
+                    Kembali
+                  </button>
+                  <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <i class="fas fa-save me-1"></i>
+                    <span id="submitText">Simpan Data</span>
+                  </button>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
+        </form>
 
-        </div>
       </div>
     </div>
   </div>
+</div>
 @endsection
 
 @push('styles')
-  <style>
-    .form-label {
-      font-weight: 600;
-      color: #2c3e50;
-    }
+<style>
+  .form-label {
+    font-weight: 600;
+    color: #2c3e50;
+  }
 
-    .text-danger {
-      font-size: 0.8em;
-    }
+  .text-danger {
+    font-size: 0.8em;
+  }
 
-    .form-control:focus {
-      border-color: #4e73df;
-      box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-    }
+  .form-control:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  }
 
-    .btn {
-      border-radius: 6px;
-      font-weight: 500;
-    }
+  .btn {
+    border-radius: 6px;
+    font-weight: 500;
+  }
 
-    .invalid-feedback {
-      font-size: 0.875em;
-    }
+  .invalid-feedback {
+    font-size: 0.875em;
+  }
 
-    .form-text {
-      font-size: 0.8em;
-      color: #6c757d;
-    }
+  .form-text {
+    font-size: 0.8em;
+    color: #6c757d;
+  }
 
-    #imagePreview {
-      border: 2px dashed #dee2e6;
-      padding: 10px;
-      border-radius: 6px;
-      text-align: center;
-    }
+  #imagePreview {
+    border: 2px dashed #dee2e6;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+  }
 
-    .card {
-      box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-      border: none;
-      border-radius: 0.35rem;
-    }
-  </style>
+  .card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    border: none;
+    border-radius: 0.35rem;
+  }
+</style>
 @endpush
 
 @push('scripts')
-  <script>
-    // Image Preview Function
+<script>
+  // Image Preview Function
     document.getElementById('img').addEventListener('change', function(e) {
       const file = e.target.files[0];
       const preview = document.getElementById('imagePreview');
@@ -233,5 +248,5 @@
         counterElement.classList.remove('text-warning');
       }
     });
-  </script>
+</script>
 @endpush

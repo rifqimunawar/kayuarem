@@ -8,7 +8,7 @@ return new class extends Migration {
   /**
    * Run the migrations.
    */
-  public function up() : void
+  public function up(): void
   {
     Schema::create('services', function (Blueprint $table) {
       $table->uuid('id')->primary();
@@ -17,6 +17,7 @@ return new class extends Migration {
       $table->string('media_type')->nullable();
       $table->string('link_video')->nullable();
       $table->text('deskripsi')->nullable();
+      $table->integer('sort')->nullable();
 
       $table->softDeletes();
       $table->timestamps();
@@ -26,7 +27,7 @@ return new class extends Migration {
   /**
    * Reverse the migrations.
    */
-  public function down() : void
+  public function down(): void
   {
     Schema::dropIfExists('services');
   }

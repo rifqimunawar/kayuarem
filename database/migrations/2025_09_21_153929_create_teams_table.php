@@ -8,7 +8,7 @@ return new class extends Migration {
   /**
    * Run the migrations.
    */
-  public function up() : void
+  public function up(): void
   {
     Schema::create('teams', function (Blueprint $table) {
       $table->id();
@@ -17,6 +17,7 @@ return new class extends Migration {
       $table->text('posisi')->nullable();
       $table->string('deskripsi')->nullable();
       $table->string('link_ig')->nullable();
+      $table->integer('sort')->nullable();
 
       $table->softDeletes();
       $table->timestamps();
@@ -26,7 +27,7 @@ return new class extends Migration {
   /**
    * Reverse the migrations.
    */
-  public function down() : void
+  public function down(): void
   {
     Schema::dropIfExists('teams');
   }
